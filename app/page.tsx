@@ -3,7 +3,6 @@
 import { useEffect } from 'react';
 import BuildArmy from './components/build-army';
 import DividerMenu from './components/divider-menu';
-import ExploreHero from './components/explore-hero';
 import FAQs from './components/faqs/faqs';
 import Features from './components/features';
 import GameEditionsGrid from './components/game-edition';
