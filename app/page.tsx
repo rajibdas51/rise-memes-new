@@ -12,7 +12,9 @@ import HowToBuy from './components/how-to-buy';
 import FactionSlider from './components/meme-kindom';
 import Roadmap from './components/roadmap';
 import Tokenmoics from './components/tokenomics';
-import bg from '/public/assets/Tokenomicsbackground.webp';
+//import bg from '/public/assets/Tokenomicsbackground.webp';
+import bg from '/public/assets/Tokenomics-bg.png';
+
 import { lazyLoadBackgrounds } from './ utils/lazyBackgrounds';
 
 export default function Home() {
@@ -31,7 +33,7 @@ export default function Home() {
       <BuildArmy />
       <div
         className='bg-cover bg-center min-h-screen bg-no-repeat lazy-bg'
-        data-bg={bg.src}
+        style={{ backgroundImage: `url(${bg.src})` }}
       >
         <Tokenmoics />
         <Roadmap />

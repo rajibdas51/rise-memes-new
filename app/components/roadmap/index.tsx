@@ -6,7 +6,7 @@ import img2 from '/public/assets/roadmap/roadmap-mobile.png';
 const Roadmap = () => {
   return (
     <>
-      <div className='w-full lg:px-20 px-2 py-10'>
+      <div className='w-full  '>
         <div className=''>
           <h1
             className={`lg:text-5xl  font-avon relative text-3xl py-10 uppercase font-[400] text-center text-transparent bg-clip-text bg-gradient-to-b from-[#E4D9BD] to-[#AA8246]  `}
@@ -20,13 +20,13 @@ const Roadmap = () => {
             src={img}
             alt=''
             loading='lazy'
-            className='md:block hidden w-full max-w-[1660px] rounded-2xl'
+            className='md:block hidden w-full max-w-[1660px]'
           />
           <Image
             src={img2}
             alt=''
             loading='lazy'
-            className=' md:hidden block w-[90%] rounded-2xl'
+            className=' md:hidden block w-[90%]'
           />
         </div>
       </div>
