@@ -26,7 +26,7 @@ const Roadmap = () => {
             src={img2}
             alt=''
             loading='lazy'
-            className=' md:hidden block w-[90%]'
+            className=' md:hidden block w-[95%]'
           />
         </div>
       </div>
