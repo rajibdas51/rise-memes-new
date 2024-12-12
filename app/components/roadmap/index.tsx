@@ -15,7 +15,7 @@ const Roadmap = () => {
           </h1>
         </div>
 
-        <div className=' flex justify-center h-full w-full '>
+        <div className='p-0 m-0 flex justify-center h-full w-full '>
           <Image
             src={img}
             alt=''
@@ -26,7 +26,7 @@ const Roadmap = () => {
             src={img2}
             alt=''
             loading='lazy'
-            className=' md:hidden block w-[95%]'
+            className=' md:hidden block w-[100%]'
           />
         </div>
       </div>
