@@ -14,18 +14,18 @@ const Card: React.FC<CardProps> = ({ title, description, subtitle }) => {
       className='relative lg:px-5 px-2 backdrop-blur-[3px] lg:max-w-[538px] lg:h-[322px] max-w-[345px] h-[206px] overflow-hidden flex flex-col justify-center items-center lg:gap-4 gap-1  bg-cover bg-center lazy-bg'
       data-bg='/assets/buyframe.png'
     >
-      <h1 className='lg:text-[38.36px] text-[20px] lg:leading-[46px] leading-[30px] font-bold bg-gradient-to-b from-[#E4D9BD] to-[#AA8246] bg-clip-text text-transparent text-center'>
+      <h1 className='lg:text-[38.36px] text-[20px] mt-4 lg:leading-[46px] leading-[30px] font-bold bg-gradient-to-b from-[#E4D9BD] to-[#AA8246] bg-clip-text text-transparent text-center'>
         {title}
       </h1>
       <p
-        className='text-center text-[#FFF1DE] mt-3 mb-1  font-medium 
-             text-[13px] lg:leading-[20px] leading-[16px]
+        className='text-center text-[#FFF1DE] mt-0 pt-3 mb-1 text-wrap  font-medium 
+             text-[11px] lg:leading-[20px] leading-[16px]
              lg:text-[18px]   
       '
       >
         {description}
       </p>
-      <h1 className='lg:text-[38.36px] mt-2  text-[25px] lg:leading-[46px] leading-[30px] font-bold bg-gradient-to-b from-[#E4D9BD] to-[#AA8246] bg-clip-text text-transparent text-center'>
+      <h1 className='lg:text-[38.36px] mt-1  text-[20px] lg:leading-[46px] leading-[30px] font-bold bg-gradient-to-b from-[#E4D9BD] to-[#AA8246] bg-clip-text text-transparent text-center'>
         {subtitle}
       </h1>
     </div>

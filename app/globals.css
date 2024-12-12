@@ -3,34 +3,34 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: "Avon-Stamp";
+  font-family: 'Avon-Stamp';
   src: url(./_fonts/Avon-Stamp.otf);
 }
 
 @font-face {
-  font-family: "Cinzel";
+  font-family: 'Cinzel';
   src: url(./_fonts/Cinzel-Regular.ttf);
 }
 
 @font-face {
-  font-family: "Cinzel-Medium";
+  font-family: 'Cinzel-Medium';
   src: url(./_fonts/Cinzel-Medium.ttf);
 }
 
 @font-face {
-  font-family: "Cinzel-Bold";
+  font-family: 'Cinzel-Bold';
   src: url(./_fonts/Cinzel-Bold.ttf);
 }
 
 @font-face {
-  font-family: "Geist-Sans";
+  font-family: 'Geist-Sans';
   src: url(./_fonts/GeistVF.woff);
 }
 
 :root {
-  --font-avon: "Avon-Stamp";
-  --font-geist-sans: "Geist-Sans";
-  --font-cinzel: "Cinzel";
+  --font-avon: 'Avon-Stamp';
+  --font-geist-sans: 'Geist-Sans';
+  --font-cinzel: 'Cinzel';
 }
 
 @layer utilities {
@@ -48,7 +48,7 @@
 
 @media (max-width: 1024px) {
   .bg-rotate-180 {
-    background-image: url("/assets/hero-image-mobile.png");
+    background-image: url('/assets/hero-image-mobile.png');
     background-position: 70% 100%;
     background-size: cover;
     background-repeat: no-repeat;
@@ -179,13 +179,13 @@ body {
 /* Add this to your CSS file */
 
 .bg-desktop {
-  background-image: url("/assets/heros/bullvsbear.webp");
+  background-image: url('/assets/heros/bullvsbear.webp');
 }
 
 @media (max-width: 768px) {
   /* Adjust breakpoint as needed */
   .bg-desktop {
-    background-image: url("/assets/heros/Bullvsbear_mobile.webp");
+    background-image: url('/assets/heros/Bullvsbear_mobile.webp');
   }
 }
 
