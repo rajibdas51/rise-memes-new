@@ -6,6 +6,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Footer from "./components/shared/footer";
 import AnimationProvider from "./components/provider/animation-provider";
+import { Web3Context } from "@/context/Web3Context";
 
 export const metadata: Metadata = {
   metadataBase: new URL("http://51.20.109.37/"),
@@ -77,11 +78,13 @@ export default function RootLayout({
         <meta httpEquiv="x-ua-compatible" content="ie=edge" />
       </head>
       <body className={clsx("font-cinzel antialiased")}>
-        <AnimationProvider>
-          <Navbar />
-          {children}
-          <Footer />
-        </AnimationProvider>
+        <Web3Context cookies={null}>
+          <AnimationProvider>
+            <Navbar />
+              {children}
+            <Footer />
+          </AnimationProvider>
+        </Web3Context>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

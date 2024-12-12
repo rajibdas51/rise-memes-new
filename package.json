@@ -9,10 +9,15 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@coinbase/wallet-sdk": "^4.2.4",
     "@react-three/drei": "^9.115.0",
     "@react-three/fiber": "^8.17.10",
+    "@reown/appkit": "^1.6.0",
+    "@reown/appkit-adapter-ethers": "^1.6.0",
     "aos": "^2.3.4",
+    "bignumber.js": "^9.1.2",
     "clsx": "^2.1.1",
+    "ethers": "^6.13.4",
     "lucide-react": "^0.453.0",
     "next": "14.2.15",
     "react": "^18.3.1",

@@ -1,0 +1,16 @@
+{
+    "projectID": "cdbb916a100f76f8797da43aa0473cb1",
+    "debugging": true,
+    "mainnet": {
+        "presaleAddress": "",
+        "publicRPC": "https://ethereum-rpc.publicnode.com",
+        "usdt": "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+        "token": ""
+    },
+    "localfork": {
+        "presaleAddress": "0x5147c5C1Cb5b5D3f56186C37a4bcFBb3Cd0bD5A7",
+        "publicRPC": "http://127.0.0.1:8545",
+        "usdt": "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+        "token": ""
+    }
+}

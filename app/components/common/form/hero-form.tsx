@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import FormButton from "../form-button";
 import CustomInput from "../custom-input";
 import Image from "next/image";
@@ -9,10 +9,150 @@ import CustomProgressBar from "../custom-progress-bar";
 import CountdownTimer from "../countdown-timer";
 import { Info } from "@/app/svg";
 
+import { useAppKitAccount } from "@reown/appkit/react";
+
+import jsonData from "@/context/evmdata/data.json";
+import jsonABI from "@/context/evmdata/PresaleABI.json";
+import jsonUSDT from "@/context/evmdata/usdt.json";
+import BigNumber from "bignumber.js";
+import { Contract, JsonRpcProvider } from "ethers";
+import { debugLog } from "@/context/Web3Context";
+
+const usedChain = jsonData.localfork;
+
+type UserBalances = {
+  eth: BigNumber,
+  usdt: BigNumber
+}
+
+type StageInfo = {
+  stagePrice: BigNumber,
+  stageTokens: BigNumber,
+}
+
 const HeroForm = () => {
   const handleTimerComplete = (): void => {
     console.log("Timer completed!");
   };
+
+  const { address, isConnected } = useAppKitAccount();
+
+  const [raisedUSD, setRaisedUSD] = useState<BigNumber>(new BigNumber(0));
+  const [actualPrice, setActualPrice] = useState<BigNumber>(new BigNumber(0));
+  const [actualETHPrice, setActualETHPrice] = useState<BigNumber>(new BigNumber(0));
+  const [userBalances, setUserBalances] = useState<UserBalances>({
+    eth: new BigNumber(0),
+    usdt: new BigNumber(0)
+  });
+
+  const [stageInfo, setStageInfo] = useState<StageInfo>({
+    stagePrice: new BigNumber(0),
+    stageTokens: new BigNumber(0)
+  });
+
+
+
+  useEffect(() => {
+    const fetchPrice = async () => {
+      const provider = new JsonRpcProvider(usedChain.publicRPC);
+      const presale = new Contract(usedChain.presaleAddress, jsonABI, provider);
+  
+      const tempPrice = new BigNumber(await presale.getActualStagePrice());
+  
+      debugLog("USDT Price: " + tempPrice.toString());
+  
+      setActualPrice(tempPrice);
+    }
+  
+    const fetchETHPrice = async () => {
+      const provider = new JsonRpcProvider(usedChain.publicRPC);
+      const presale = new Contract(usedChain.presaleAddress, jsonABI, provider);
+  
+      const tempPrice = new BigNumber(await presale.getETHPrice());
+  
+      debugLog("ETH Price: " + tempPrice.shiftedBy(-6).toString());
+  
+      setActualETHPrice(tempPrice);
+    }
+  
+    const fetchRaisedUSD = async () => {
+      const provider = new JsonRpcProvider(usedChain.publicRPC);
+      const presale = new Contract(usedChain.presaleAddress, jsonABI, provider);
+  
+      const tempPrice = new BigNumber(await presale.usdtRaised());
+  
+      debugLog("Raised USD: " + tempPrice.shiftedBy(-6).toString());
+  
+      setRaisedUSD(tempPrice);
+    }
+  
+    const fetchBalances = async () => {
+      if(!address) return;
+  
+      const provider = new JsonRpcProvider(usedChain.publicRPC);
+      const usdt = new Contract(usedChain.usdt, jsonUSDT, provider);
+  
+      const usdtbal = new BigNumber(await usdt.balanceOf(address));
+      const ethbal = new BigNumber((await provider.getBalance(address)).toString());
+
+      debugLog("USDT: " + usdtbal.toString());
+      debugLog("ETH: " + ethbal.toString());
+  
+      setUserBalances({
+        eth: ethbal,
+        usdt: usdtbal
+      });
+    }
+  
+    const fetchStageInfo = async () => {
+      const provider = new JsonRpcProvider(usedChain.publicRPC);
+      const presale = new Contract(usedChain.presaleAddress, jsonABI, provider);
+  
+      const tempStage = new BigNumber(await presale.actualStage());
+      const tempStagePrice = new BigNumber(await presale.stagePrices(tempStage.toString()));
+      const tempStageTokens = new BigNumber(await presale.stageTokens(tempStage.toString()));
+  
+      debugLog("actual stage: " + tempStage.shiftedBy(-6).toString());
+  
+      setStageInfo({
+        stagePrice: tempStagePrice,
+        stageTokens: tempStageTokens
+      })
+    }
+
+    fetchPrice();
+    fetchETHPrice();
+    fetchRaisedUSD();
+    fetchBalances();
+    fetchStageInfo();
+
+  }, [actualPrice, actualETHPrice, raisedUSD, userBalances, address])
+
+  const renderPrice = (): string => {
+    if(selectedCurrency === "ETH") {
+      const ethPrice = actualPrice.dividedBy(actualETHPrice).toFixed(10).toString();
+      debugLog("ETHValue: " + ethPrice);
+      return ethPrice;
+    } else {
+      return actualPrice.shiftedBy(-6).toFixed(6).toString();
+    }
+  }
+
+  const handleBuy = async () => {
+    if(!isConnected) return;
+  }
+
+  const handleMaxButton = () => {
+    debugLog("mx usdt");
+
+    if(selectedCurrency == "ETH") {
+      setPayWithValue("")
+    }
+
+    if(selectedCurrency === "USDT") {
+      setPayWithValue(userBalances.usdt.dividedBy(actualPrice).shiftedBy(-6).toFixed(5));
+    }
+  }
 
   const containerShadowStyle = {
     filter: "drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.6))",
@@ -35,7 +175,6 @@ const HeroForm = () => {
           Buy $Rise presale
         </h1>
         <CountdownTimer
-          initialMinutes={2880}
           onComplete={handleTimerComplete}
         />
         <p
@@ -49,13 +188,13 @@ const HeroForm = () => {
             className="text-lg text-gradient font-semibold"
             style={containerShadowStyle}
           >
-            $14.934.093.29
+            ${raisedUSD.shiftedBy(-6).toFixed(2).toString()}
           </p>
           <p
             className="text-lg text-gradient font-semibold opacity-80"
             style={containerShadowStyle}
           >
-            $14.934.093.29
+            ${stageInfo.stageTokens.multipliedBy(stageInfo.stagePrice.shiftedBy(-6)).toFixed(2).toLocaleString()}
           </p>
         </div>
         <div>
@@ -93,7 +232,7 @@ const HeroForm = () => {
             loading="lazy"
           />
           <p className="text-gradient font-semibold text-[10px] sm:text-sm z-50">
-            1$RISE <span className="mx-1">=</span> $0.3490
+            1$RISE <span className="mx-1">=</span> ${renderPrice()}
           </p>
           <Image
             src={"/assets/form-arrow-right.svg"}
@@ -124,7 +263,7 @@ const HeroForm = () => {
               label={getPayWithLabel()}
               value={payWithValue}
               onChange={setPayWithValue}
-              onMaxClick={() => setPayWithValue("100")}
+              onMaxClick={() => handleMaxButton()}
             />
             <CustomInput
               label="$Rise you receive"
@@ -137,13 +276,14 @@ const HeroForm = () => {
             <FormButton label="Explore Edition" />
             <FormButton
               label="Buy"
+              onClick={() => handleBuy()}
               radialColor1="#4b3d28"
               radialColor2="#211811"
             />
           </div>
         </form>
 
-        <div className="flex  lg:flex-row  lg:justify-between justify-center flex-col items-center my-3 text-xs 2xl:text-sm text-gradient font-semibold uppercase z-50">
+        <div className="flex lg:flex-row  lg:justify-between justify-center flex-col items-center my-3 text-xs 2xl:text-sm text-gradient font-semibold uppercase z-50">
           <Link href={"#"} className="text-gradient z-50">
             Connect Wallet
           </Link>

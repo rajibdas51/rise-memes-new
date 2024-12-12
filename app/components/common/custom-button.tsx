@@ -33,7 +33,7 @@ const CustomButton = ({
       >
         <div
           className="absolute inset-0 bg-center bg-no-repeat"
-          data-bg="url('/assets/button-stars.svg"
+          data-bg="url('/assets/button-stars.svg')"
         />
 
         <div className="relative text-gradient font-bold uppercase z-50 whitespace-nowrap overflow-visible">

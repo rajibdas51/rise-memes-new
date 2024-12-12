@@ -1,6 +1,14 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import { ethers } from "ethers";
+
+import jsonData from "@/context/evmdata/data.json";
+import jsonABI from "@/context/evmdata/PresaleABI.json";
+import BigNumber from "bignumber.js";
+import { debugLog } from "@/context/Web3Context";
+
+const usedChain = jsonData.localfork;
 
 interface TimeLeft {
   days: number;
@@ -10,37 +18,43 @@ interface TimeLeft {
 }
 
 interface CountdownTimerProps {
-  initialMinutes: number;
   onComplete?: () => void;
 }
 
 const CountdownTimer: React.FC<CountdownTimerProps> = ({
-  initialMinutes,
   onComplete,
 }) => {
-  const [timeLeft, setTimeLeft] = useState<TimeLeft>({
-    days: 0,
-    hours: 0,
-    minutes: 0,
-    seconds: 0,
-  });
+
+  const [presaleStartTime, setPresaleStartTime] = useState<number>(0);
+
+  const fetchPresaleStartTime = async () => {
+    const provider = new ethers.JsonRpcProvider(usedChain.publicRPC);
+    const presale = new ethers.Contract(usedChain.presaleAddress, jsonABI, provider);
+
+    const starttime = new BigNumber(await presale.presaleStartTime());
+
+    if(starttime.isGreaterThan(new BigNumber(0))) {
+      setPresaleStartTime(starttime.toNumber())
+    };
+
+    debugLog(presaleStartTime.toString());
+  }
 
   const containerShadowStyle = {
     filter: "drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.6))",
   };
 
-  useEffect(() => {
-    const endTime: number = Date.now() + initialMinutes * 60 * 1000;
+  const calculateTimeLeft = (): TimeLeft => {
+    const endTime: number = (presaleStartTime + (60 * 60 * 24 * 10)) * 1000;
 
-    const timer: NodeJS.Timeout = setInterval(() => {
       const now: number = Date.now();
       const difference: number = endTime - now;
 
+      console.log(difference);
+
       if (difference <= 0) {
-        clearInterval(timer);
-        setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 });
         onComplete?.();
-        return;
+        return { days: 0, hours: 0, minutes: 0, seconds: 0 };
       }
 
       const days: number = Math.floor(difference / (1000 * 60 * 60 * 24));
@@ -52,11 +66,20 @@ const CountdownTimer: React.FC<CountdownTimerProps> = ({
       );
       const seconds: number = Math.floor((difference % (1000 * 60)) / 1000);
 
-      setTimeLeft({ days, hours, minutes, seconds });
+      return { days, hours, minutes, seconds };
+  }
+
+  const [timeLeft, setTimeLeft] = useState<TimeLeft>(calculateTimeLeft());
+
+  useEffect(() => {
+    fetchPresaleStartTime();
+    
+    const timer: NodeJS.Timeout = setInterval(() => {
+      setTimeLeft(calculateTimeLeft());
     }, 1000);
 
     return () => clearInterval(timer);
-  }, [initialMinutes, onComplete]);
+  }, [timeLeft, presaleStartTime]);
 
   const padNumber = (num: number): string => {
     return num.toString().padStart(2, "0");

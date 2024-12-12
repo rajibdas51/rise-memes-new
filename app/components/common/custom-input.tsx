@@ -61,6 +61,7 @@ const CustomInput: React.FC<CustomInputProps> = ({
         {showMax && onMaxClick && (
           <button
             onClick={onMaxClick}
+            type="button"
             className="absolute right-2 top-1/2 -translate-y-1/2
               text-gradient transition-colors
               text-sm font-medium uppercase  z-20"

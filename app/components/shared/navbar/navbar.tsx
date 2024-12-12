@@ -5,17 +5,32 @@ import Image from "next/image";
 import { useState } from "react";
 import { RiMenu4Line } from "react-icons/ri";
 import LanguageSelector from "../../common/language-selector";
+import { useAppKit, useAppKitAccount } from "@reown/appkit/react";
+import { shortenAddress } from "@/context/Web3Context";
 
 const Navbar = () => {
+  const { open } = useAppKit();
+  const { address, isConnected } = useAppKitAccount();
+
+  const handleConnect = async () => {
+    if(!isConnected) {
+      await open();
+    }
+  }
+
+  const buttonTitle = () => {
+    if(isConnected) return shortenAddress(address);
+    return "Connect Wallet";
+  }
+
   const leftLinks = [
     { title: "Game", href: "#" },
     { title: "Token Info", href: "#" },
-    { title: "WhitePaper", href: "#" },
   ];
 
   const rightLinks = [
+    { title: "WhitePaper", href: "#" },
     { title: "FAQ", href: "#" },
-    { title: "Connect Wallet", href: "#" },
   ];
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -61,7 +76,7 @@ const Navbar = () => {
             </div>
           ))}
           <div className="relative flex items-center gap-4">
-            <CustomButton label="Buy" />
+            <CustomButton label={buttonTitle()} onClick={() => handleConnect()}/>
             <LanguageSelector
               currentLang={selectedLang}
               onLanguageChange={setSelectedLang}
@@ -71,7 +86,7 @@ const Navbar = () => {
         </div>
 
         <div className="flex lg:hidden justify-end items-center gap-5 w-full pr-2">
-          <CustomButton label="Buy" className="mr-2" />
+          <CustomButton label="Connect wallet" className="mr-2" onClick={() => handleConnect()}/>
           <button
             onClick={toggleMenu}
             className="text-[#E4D9BD] border-2 border-[#E4D9BD] rounded-full p-2"
