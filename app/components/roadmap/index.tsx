@@ -15,7 +15,7 @@ const Roadmap = () => {
           </h1>
         </div>
 
-        <div className='p-0 m-0 flex justify-center h-full w-full '>
+        <div className='p-0 m-0 flex justify-center h-full w-full pb-8 mg:pb-0 '>
           <Image
             src={img}
             alt=''
