@@ -20,6 +20,7 @@ const page = () => {
           disclose, and protect your data when you interact with our website and
           participate in our play-to-earn game on the Solana blockchain.
         </p>
+
         {/****************  point 1****************/}
         <div>
           <h2 className='py-4 mt-8 font-avon text-2xl md:text-4xl text-gradient  uppercase mb-4 text-left md:text-left'>

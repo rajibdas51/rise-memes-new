@@ -20,10 +20,7 @@ const BuildArmy: React.FC = () => {
   return (
     <div>
       {/* Hero Section with Background Image */}
-      <div
-        id='token-info'
-        className='sm:bg-cover bg-cover xl:bg-center md:bg-left bg-bottom xl:min-h-screen pb-40 flex justify-center items-center w-full bg-no-repeat lg:py-20 py-10 bg-desktop lazy-bg'
-      >
+      <div className='sm:bg-cover bg-cover xl:bg-center md:bg-left bg-bottom xl:min-h-screen pb-40 flex justify-center items-center w-full bg-no-repeat lg:py-20 py-10 bg-desktop lazy-bg'>
         {/* Content Container */}
         <div className='xl:w-3/5 lg:w-3/4 w-full px-5 mx-auto pt-5 pb-20'>
           {/* Map over the headings array */}
