@@ -20,12 +20,12 @@ const HeroSection = () => {
   return (
     <div className="w-full h-auto 2xl:h-auto bg-cover bg-left bg-no-repeat lg:bg-[url('/assets/main-hero-bg.png')]">
       <div
-        className="w-full h-full flex flex-col-reverse lg:flex-row bg-no-repeat bg-contain bg-[url('/assets/hero-image-mobile.webp')] lg:bg-none"
+        className="-z-50 w-full h-full flex flex-col-reverse lg:flex-row bg-no-repeat bg-contain bg-[url('/assets/hero-image-mobile.webp')] lg:bg-none"
         style={{
           backgroundPosition: '70% 100%',
         }}
       >
-        <div className='w-full xl:w-3/4 md:h-full md:mt-[12rem] sm:mt-0 lg:mt-0'>
+        <div className=' w-full xl:w-3/4 md:h-full -mt-[70px] md:mt-[12rem] sm:mt-0 lg:mt-0'>
           <div className='w-full 2xl:px-16 lg:px-10 px-4 pb-12 lg:py-20'>
             <h1
               data-aos='zoom-in'
@@ -64,19 +64,22 @@ const HeroSection = () => {
           </div>
         </div>
 
-        <div className='w-full 2xl:w-1/3 xl:w-2/5 h-full px-0 lg:pr-10 lg:pl-0 2xl:pl-4 overflow-x-hidden bg-no-repeat'>
+        <div className='w-full 2xl:w-1/3 xl:w-2/5 h-max px-0 lg:pr-10 lg:pl-0 2xl:pl-4 overflow-x-hidden  bg-no-repeat'>
           <div
             data-aos='fade-down'
             data-aos-easing='linear'
-            className='relative w-full h-full z-10 md:z-0 overflow-hidden'
+            className='relative w-full h-max z-10 md:z-0 md:overflow-hidden  '
           >
-            <img
-              src='/assets/hero-form-bg.webp'
+            <Image
+              src='/assets/hero-form-bg.png'
+              width={100}
+              height={100}
               alt='Background'
-              className='absolute top-0 left-0 w-full h-[116%] md:h-[150%] sm:h-[100vh] object-cover md:object-cover lg:object-cover filter brightness-75'
+              className='absolute top-0 left-0 w-full h-[118%] md:h-[150%] sm:h-[100vh] object-cover md:object-cover lg:object-cover filter brightness-75'
             />
             <HeroForm />
           </div>
+          <div className='w-28 h-[150px] md:hidden bg-transparent'></div>
         </div>
       </div>
     </div>

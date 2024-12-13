@@ -102,6 +102,7 @@ const Navbar = () => {
               href={link.href}
               key={index}
               className='py-4 cursor-pointer text-gradient font-semibold hover:text-gray-200'
+              onClick={() => setIsMenuOpen(false)}
             >
               {link.title}
             </Link>
