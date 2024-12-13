@@ -47,7 +47,7 @@ const Navbar = () => {
         </div>
 
         <div
-          onClick={router.push('/')}
+          onClick={() => router.push('/')}
           className='relative  flex justify-center items-center flex-grow ml-7 lg:ml-0 cursor-pointer'
         >
           <Link
