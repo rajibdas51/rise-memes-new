@@ -1,12 +1,12 @@
 // FactionSlider.tsx
-"use client";
+'use client';
 
-import React, { useState, useRef } from "react";
-import Image from "next/image";
-import { factions } from "./data";
-import "./faction.css";
-import TitleHeading from "../common/title-heading";
-import { LeftArrow, RightArrow } from "@/app/svg";
+import React, { useState, useRef } from 'react';
+import Image from 'next/image';
+import { factions } from './data';
+import './faction.css';
+import TitleHeading from '../common/title-heading';
+import { LeftArrow, RightArrow } from '@/app/svg';
 
 // Type definitions for the Arrow components
 interface ArrowProps {
@@ -23,7 +23,7 @@ export function NextArrow({ onClick }: ArrowProps) {
   return (
     <div
       onClick={onClick}
-      className="flex absolute lg:right-[-3rem]  right-4 xl:right-0 lg:top-[35%] top-[40%] z-10 cursor-pointer"
+      className='flex absolute lg:right-[-3rem]  right-4 xl:right-0 lg:top-[35%] top-[40%] z-10 cursor-pointer'
     >
       <RightArrow />
     </div>
@@ -34,7 +34,7 @@ export function PrevArrow({ onClick }: ArrowProps) {
   return (
     <div
       onClick={onClick}
-      className="flex absolute lg:left-[1rem] xl:right-0 left-4 lg:top-[35%] top-[40%] z-10 cursor-pointer"
+      className='flex absolute lg:left-[1rem] xl:right-0 left-4 lg:top-[35%] top-[40%] z-10 cursor-pointer'
     >
       <LeftArrow />
     </div>
@@ -63,14 +63,14 @@ const FactionSlider: React.FC = () => {
   // Navigate to the previous slide with wrap-around
   const handlePrevSlide = () => {
     console.log(
-      "New active slide in prev",
+      'New active slide in prev',
       activeSlide,
       (activeSlide - 1 + totalFactions) % totalFactions
     );
     setActiveSlide((prev) => (prev - 1 + totalFactions) % totalFactions); // Wraps to the end if going below 0
   };
 
-  console.log("Active slide is: ", activeSlide);
+  console.log('Active slide is: ', activeSlide);
 
   // Handle touch events for swiping on mobile devices
   const handleTouchStart = (e: React.TouchEvent) => {
@@ -79,18 +79,19 @@ const FactionSlider: React.FC = () => {
 
   const handleTouchMove = (e: React.TouchEvent) => {
     touchEndX.current = e.touches[0].clientX;
+    e.preventDefault();
   };
 
   const handleTouchEnd = () => {
-    // const distance = touchStartX.current - touchEndX.current;
-    // const threshold = 50; // Minimum distance for a swipe to be registered
-    // if (distance > threshold) {
-    //   // Swiped left
-    //   handleNextSlide();
-    // } else if (distance < -threshold) {
-    //   // Swiped right
-    //   handlePrevSlide();
-    // }
+    const distance = touchStartX.current - touchEndX.current;
+    const threshold = 50; // Minimum distance for a swipe to be registered
+    if (distance > threshold) {
+      // Swiped left
+      handleNextSlide();
+    } else if (distance < -threshold) {
+      // Swiped right
+      handlePrevSlide();
+    }
   };
 
   // Handle mouse events for dragging on desktop
@@ -130,16 +131,16 @@ const FactionSlider: React.FC = () => {
 
   return (
     <div
-      className="w-full lg:pb-0 pb-20 bg-opacity-10 bg-no-repeat bg-cover lazy-bg"
+      className='w-full lg:pb-0 pb-20 bg-opacity-10 bg-no-repeat bg-cover lazy-bg'
       data-bg='/assets/castle.svg'
     >
-      <div className="faction-slider-container max-w-7xl mx-auto ">
-        <TitleHeading className="mt-16 lg:mt-10 z-10">
+      <div className='faction-slider-container max-w-7xl mx-auto '>
+        <TitleHeading className='mt-16 lg:mt-10 z-10'>
           Meme Kingdom Factions
         </TitleHeading>
-        <div className="slider-wrapper h-full flex lg:flex-row flex-col justify-center items-center relative">
+        <div className='slider-wrapper h-full flex lg:flex-row flex-col justify-center items-center relative'>
           <div
-            className="relative w-full flex items-center"
+            className='relative w-full flex items-center'
             ref={sliderRef}
             onTouchStart={handleTouchStart}
             onTouchMove={handleTouchMove}
@@ -150,7 +151,7 @@ const FactionSlider: React.FC = () => {
             onMouseLeave={handleMouseLeave}
           >
             {/* Slider */}
-            <div className="slider">
+            <div className='slider'>
               {factions.map((faction: Faction, index: number) => {
                 let distance = index - activeSlide;
                 if (distance > totalFactions / 2) {
@@ -174,20 +175,20 @@ const FactionSlider: React.FC = () => {
                           ? `distance-next-${Math.abs(adjustedDistance)}`
                           : `distance-prev-${Math.abs(adjustedDistance)}`
                       }`
-                    : "slide active-slide";
+                    : 'slide active-slide';
 
                 return (
                   <div
                     key={index}
                     className={`relative rounded ${distanceClass}`}
                   >
-                    <div className="slide-content">
+                    <div className='slide-content'>
                       <Image
                         src={faction.imageUrl}
                         alt={`${faction.name} image`}
-                        layout="fill"
-                        className="object-contain rounded-xl"
-                        loading="lazy"
+                        layout='fill'
+                        className='object-contain rounded-xl'
+                        loading='lazy'
                       />
                     </div>
                   </div>
@@ -197,12 +198,12 @@ const FactionSlider: React.FC = () => {
 
             <PrevArrow onClick={handlePrevSlide} />
             <NextArrow onClick={handleNextSlide} />
-            <div className="dots-container">
+            <div className='dots-container'>
               {factions.map((_, index) => (
                 <button
                   key={index}
                   className={`dot ${
-                    activeSlide === index ? "active" : ""
+                    activeSlide === index ? 'active' : ''
                   } dots`}
                   onClick={() => handleDotClick(index)}
                   aria-label={`Go to slide ${index + 1}`}
@@ -213,11 +214,11 @@ const FactionSlider: React.FC = () => {
             </div>
           </div>
 
-          <div className="faction-details w-full lg:h-[550px] px-4 text-center mt-8 lg:mt-4 overflow-y-auto lg:pr-20 lg:pl-20">
-            <h2 className="font-avon text-gradient text-4xl uppercase mb-4 text-center md:text-left">
+          <div className='faction-details w-full lg:h-[550px] px-4 text-center mt-8 lg:mt-4 overflow-y-auto lg:pr-20 lg:pl-20'>
+            <h2 className='font-avon text-gradient text-4xl uppercase mb-4 text-center md:text-left'>
               {factions[activeSlide].name}
             </h2>
-            <p className="text-[#fff1de] text-shadow-effect-para font-[500] font-cinzel text-sm md:text-lg text-center md:text-left no-scrollbar">
+            <p className='text-[#fff1de] text-shadow-effect-para font-[500] font-cinzel text-sm md:text-lg text-center md:text-left no-scrollbar'>
               {factions[activeSlide].description}
             </p>
           </div>

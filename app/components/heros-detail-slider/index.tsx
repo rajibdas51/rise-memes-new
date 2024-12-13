@@ -5,7 +5,8 @@ import Heading from '../common/heading';
 import { LeftArrow, RightArrow } from '@/app/svg';
 import { sliderData } from './data';
 import Image from 'next/image';
-
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 interface ArrowProps {
   onClick?: () => void;
 }
@@ -42,8 +43,15 @@ const HeroDetails: React.FC = () => {
     arrows: true,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
+
+    // Ensure mobile swiping is fully enabled
+    swipeToSlide: true,
     swipe: true,
     touchMove: true,
+    touchThreshold: 10, // Adjust sensitivity of touch
+    mobileFirst: true, // Prioritize mobile configuration
+    accessibility: true, // Improve accessibility
+    draggable: true, // Allow dragging on all devices
   };
 
   return (
@@ -56,7 +64,7 @@ const HeroDetails: React.FC = () => {
               data-bg={slide.bg.src}
             >
               <div className='5xl:max-w-[1800px] 2xl:px-24 xl:px-16 mx-auto py-5 min-h-[60vh] relative'>
-                <div className='lg:relative flex-col md:flex-row flex w-full h-full lg:min-h-[78vh] min-h-[45vh] overflow-hidden bg-cover bg-no-repeat bg-center '>
+                <div className='lg:relative flex-col md:flex-row flex w-full h-full lg:min-h-[78vh] min-h-[45vh] overflow-visible bg-cover bg-no-repeat bg-center '>
                   <Image
                     src={slide.imgSrc}
                     alt='Slide image'
