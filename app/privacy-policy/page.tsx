@@ -22,7 +22,7 @@ const page = () => {
         </p>
         {/****************  point 1****************/}
         <div>
-          <h2 className='py-4 font-avon text-2xl md:text-4xl text-gradient  uppercase mb-4 text-left md:text-left'>
+          <h2 className='py-4 mt-8 font-avon text-2xl md:text-4xl text-gradient  uppercase mb-4 text-left md:text-left'>
             1. Information We Collect{' '}
           </h2>
           <p className='text-[#fff1de] text-shadow-effect-para font-[500] font-cinzel text-sm md:text-lg text-center text-wrap md:text-left no-scrollbar'>
