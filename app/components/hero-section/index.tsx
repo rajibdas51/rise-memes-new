@@ -25,8 +25,8 @@ const HeroSection = () => {
           backgroundPosition: '70% 100%',
         }}
       >
-        <div className=' w-full xl:w-3/4 md:h-full -mt-[100px]  md:mt-[12rem] sm:mt-0 lg:mt-0'>
-          <div className='w-full 2xl:px-16 lg:px-10 px-4 pb-12 lg:py-20'>
+        <div className=' w-full xl:w-3/4 md:h-full -mt-[150px]  md:mt-[12rem] sm:mt-0 lg:mt-0'>
+          <div className='w-full py-10 2xl:px-16 lg:px-10 px-4 pb-12 lg:py-20'>
             <h1
               data-aos='zoom-in'
               className='text-gradient uppercase font-avon xl:w-4/5  2xl:w-3/4 w-full 2xl:text-7xl lg:px-4 xxl:text-[4rem] xl:text-6xl md:text-5xl text-[34px] lg:text-left text-center '
