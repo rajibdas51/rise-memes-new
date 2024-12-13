@@ -101,21 +101,21 @@ const TermsAndConditionsPage = () => {
         <h2 className='pt-6 font-avon text-gradient text-2xl uppercase mb-4 text-left md:text-left'>
           Intellectual Property Rights
         </h2>
-        <p className='text-[#fff1de] text-shadow-effect-para font-[500] font-cinzel text-sm md:text-lg text-left md:text-left no-scrollbar'>
+        <p className='py-2 text-[#fff1de] text-shadow-effect-para font-[500] font-cinzel text-sm md:text-lg text-left md:text-left no-scrollbar'>
           a. By accessing www.riseofmemes.com, you are granted a limited,
           non-sublicensable license to access and use our services and token
           subject to these Terms.
         </p>
-        <p className='text-[#fff1de] text-shadow-effect-para font-[500] font-cinzel text-sm md:text-lg text-left md:text-left no-scrollbar'>
+        <p className='py-2 text-[#fff1de] text-shadow-effect-para font-[500] font-cinzel text-sm md:text-lg text-left md:text-left no-scrollbar'>
           b. You agree that any information and media, including logos,
           trademarks, and text, are protected by intellectual property laws, and
           you cannot exercise any rights regarding these without our permission.
         </p>
-        <p className='text-[#fff1de] text-shadow-effect-para font-[500] font-cinzel text-sm md:text-lg text-left md:text-left no-scrollbar'>
+        <p className='py-2 text-[#fff1de] text-shadow-effect-para font-[500] font-cinzel text-sm md:text-lg text-left md:text-left no-scrollbar'>
           c. You may not modify any of our products or services nor create any
           derivatives associated with these without our written permission.
         </p>
-        <p className='text-[#fff1de] text-shadow-effect-para font-[500] font-cinzel text-sm md:text-lg text-left md:text-left no-scrollbar'>
+        <p className='py-2 text-[#fff1de] text-shadow-effect-para font-[500] font-cinzel text-sm md:text-lg text-left md:text-left no-scrollbar'>
           d. You will not attempt to receive any financial gains from
           distributing, sharing, or promoting our services and any content
           related to them without a written agreement with us. If you provide us
@@ -127,27 +127,27 @@ const TermsAndConditionsPage = () => {
         <h2 className='pt-6  font-avon text-gradient text-2xl uppercase mb-4 text-left md:text-left'>
           Cryptocurrency Risks
         </h2>
-        <p className='text-[#fff1de] text-shadow-effect-para font-[500] font-cinzel text-sm md:text-lg text-left md:text-left no-scrollbar'>
+        <p className='py-2 text-[#fff1de] text-shadow-effect-para font-[500] font-cinzel text-sm md:text-lg text-left md:text-left no-scrollbar'>
           a. Investment Risk: Purchasing cryptocurrencies, including $RISE,
           carries inherent risks. Prices can be highly volatile, and you may
           lose all or part of your investment. We do not provide investment
           advice, and you are solely responsible for your investment decisions.
         </p>
-        <p className='text-[#fff1de] text-shadow-effect-para font-[500] font-cinzel text-sm md:text-lg text-left md:text-left no-scrollbar'>
+        <p className='py-2 text-[#fff1de] text-shadow-effect-para font-[500] font-cinzel text-sm md:text-lg text-left md:text-left no-scrollbar'>
           b. Security: You are responsible for maintaining the security of your
           wallet and private keys. TheRiseOfMemes is not liable for any losses
           or damages resulting from your failure to secure your assets properly.
         </p>
-        <p className='text-[#fff1de] text-shadow-effect-para font-[500] font-cinzel text-sm md:text-lg text-left md:text-left no-scrollbar'>
+        <p className='py-2 text-[#fff1de] text-shadow-effect-para font-[500] font-cinzel text-sm md:text-lg text-left md:text-left no-scrollbar'>
           c. Regulatory Compliance: Cryptocurrency regulations vary by
           jurisdiction. It is your responsibility to comply with the laws and
           regulations in your area regarding cryptocurrency use.
         </p>
-        <p className='text-[#fff1de] text-shadow-effect-para font-[500] font-cinzel text-sm md:text-lg text-left md:text-left no-scrollbar'>
+        <p className='py-2 text-[#fff1de] text-shadow-effect-para font-[500] font-cinzel text-sm md:text-lg text-left md:text-left no-scrollbar'>
           d. No Guarantees: Rise makes no guarantees or warranties about the
           value, stability, or future performance of the $RISE token.
         </p>
-        <p className='text-[#fff1de] text-shadow-effect-para font-[500] font-cinzel text-sm md:text-lg text-left md:text-left no-scrollbar'>
+        <p className='py-2 text-[#fff1de] text-shadow-effect-para font-[500] font-cinzel text-sm md:text-lg text-left md:text-left no-scrollbar'>
           e. Claim of Tokens: Claiming the $RISE tokens after the end of the
           presale can only be done with the same wallet from which they were
           purchased in the presale. In the event of losing access or the
