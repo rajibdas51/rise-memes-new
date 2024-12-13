@@ -25,7 +25,7 @@ const HeroSection = () => {
           backgroundPosition: '70% 100%',
         }}
       >
-        <div className=' w-full xl:w-3/4 md:h-full -mt-[70px] md:mt-[12rem] sm:mt-0 lg:mt-0'>
+        <div className=' w-full xl:w-3/4 md:h-full -mt-[100px]  md:mt-[12rem] sm:mt-0 lg:mt-0'>
           <div className='w-full 2xl:px-16 lg:px-10 px-4 pb-12 lg:py-20'>
             <h1
               data-aos='zoom-in'
@@ -75,11 +75,11 @@ const HeroSection = () => {
               width={100}
               height={100}
               alt='Background'
-              className='absolute top-0 left-0 w-full h-[118%] md:h-[150%] sm:h-[100vh] object-cover md:object-cover lg:object-cover filter brightness-75'
+              className='absolute top-0 left-0 w-full h-[120%] md:h-[150%] sm:h-[100vh] object-cover md:object-cover lg:object-cover filter brightness-75'
             />
             <HeroForm />
           </div>
-          <div className='w-28 h-[150px] md:hidden bg-transparent'></div>
+          <div className='w-28 h-[180px] md:hidden bg-transparent'></div>
         </div>
       </div>
     </div>
