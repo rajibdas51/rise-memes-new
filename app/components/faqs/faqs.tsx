@@ -1,10 +1,10 @@
-"use client";
-import React, { useState } from "react";
-import Section from "../common/section";
-import bg from "/public/assets/roadmap/faq-bg.webp";
-import TitleHeading from "../common/title-heading";
-import { DownArrow, UpArrow } from "@/app/svg";
-import { faqData } from "./data";
+'use client';
+import React, { useState } from 'react';
+import Section from '../common/section';
+import bg from '/public/assets/roadmap/faq-bg.webp';
+import TitleHeading from '../common/title-heading';
+import { DownArrow, UpArrow } from '@/app/svg';
+import { faqData } from './data';
 
 const FAQs: React.FC = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
@@ -20,37 +20,38 @@ const FAQs: React.FC = () => {
 
   return (
     <div
-      className="bg-cover bg-center lg:min-h-screen bg-no-repeat lg:py-10 py-5 lg:px-10 lazy-bg"
+      id='faq'
+      className='bg-cover bg-center lg:min-h-screen bg-no-repeat lg:py-10 py-5 lg:px-10 lazy-bg'
       data-bg={bg.src}
     >
       <TitleHeading>FAQ</TitleHeading>
 
       <Section>
-        <div className="grid grid-cols-1 xl:grid-cols-2 items-baseline gap-6">
+        <div className='grid grid-cols-1 xl:grid-cols-2 items-baseline gap-6'>
           {/* First Half of FAQs */}
-          <div className="flex flex-col gap-4">
+          <div className='flex flex-col gap-4'>
             {firstHalf.map((item, index) => (
               <div
                 key={index}
-                className="faqs bg-red-500 px-4 py-3 shadow-lg rounded-md break-inside-avoid"
+                className='faqs bg-red-500 px-4 py-3 shadow-lg rounded-md break-inside-avoid'
               >
                 <button
                   onClick={() => toggleAccordion(index)}
-                  className="w-full text-left flex justify-between items-center font-avon lg:text-lg text-base font-[400] text-transparent bg-clip-text bg-gradient-to-b from-[#E4D9BD] to-[#AA8246] rounded-md uppercase"
+                  className='w-full text-left flex justify-between items-center font-avon lg:text-lg text-base font-[400] text-transparent bg-clip-text bg-gradient-to-b from-[#E4D9BD] to-[#AA8246] rounded-md uppercase'
                 >
                   {item.question}
-                  <span className="text-xl">
+                  <span className='text-xl'>
                     {openIndex === index ? <UpArrow /> : <DownArrow />}
                   </span>
                 </button>
                 <div
                   className={`transition-all duration-500 overflow-hidden ${
                     openIndex === index
-                      ? "max-h-screen opacity-100 py-4"
-                      : "max-h-0 opacity-0"
+                      ? 'max-h-screen opacity-100 py-4'
+                      : 'max-h-0 opacity-0'
                   }`}
                 >
-                  <div className="w-full text-left flex justify-between items-center lg:text-base text-sm font-[500] text-[#FFF1DE]">
+                  <div className='w-full text-left flex justify-between items-center lg:text-base text-sm font-[500] text-[#FFF1DE]'>
                     {item.answer}
                   </div>
                 </div>
@@ -59,18 +60,18 @@ const FAQs: React.FC = () => {
           </div>
 
           {/* Second Half of FAQs */}
-          <div className="flex flex-col gap-4">
+          <div className='flex flex-col gap-4'>
             {secondHalf.map((item, index) => (
               <div
                 key={index}
-                className="faqs px-4 py-3 shadow-lg break-inside-avoid"
+                className='faqs px-4 py-3 shadow-lg break-inside-avoid'
               >
                 <button
                   onClick={() => toggleAccordion(midIndex + index)} // Adjust the index for the second half
-                  className="w-full text-left flex justify-between items-center font-avon lg:text-lg text-base font-[400] text-transparent bg-clip-text bg-gradient-to-b from-[#E4D9BD] to-[#AA8246] uppercase"
+                  className='w-full text-left flex justify-between items-center font-avon lg:text-lg text-base font-[400] text-transparent bg-clip-text bg-gradient-to-b from-[#E4D9BD] to-[#AA8246] uppercase'
                 >
                   {item.question}
-                  <span className="text-xl">
+                  <span className='text-xl'>
                     {openIndex === midIndex + index ? (
                       <UpArrow />
                     ) : (
@@ -81,11 +82,11 @@ const FAQs: React.FC = () => {
                 <div
                   className={`transition-all duration-500 overflow-hidden ${
                     openIndex === midIndex + index
-                      ? "max-h-screen opacity-100 py-4"
-                      : "max-h-0 opacity-0"
+                      ? 'max-h-screen opacity-100 py-4'
+                      : 'max-h-0 opacity-0'
                   }`}
                 >
-                  <div className="w-full text-left flex justify-between items-center lg:text-base text-sm font-[500] text-[#FFF1DE]">
+                  <div className='w-full text-left flex justify-between items-center lg:text-base text-sm font-[500] text-[#FFF1DE]'>
                     {item.answer}
                   </div>
                 </div>

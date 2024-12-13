@@ -55,7 +55,7 @@ export default function Footer() {
 
           <div className='flex justify-center items-center gap-14 text-gradient font-semibold  text-sm lg:text-lg'>
             <Link href='/privacy-policy'>Privacy & Policies</Link>
-            <Link href='terms-and-conditions'>Terms & Conditions</Link>
+            <Link href='/terms-and-conditions'>Terms & Conditions</Link>
           </div>
 
           <div className='px-4 md:px-20 lg:px-40 md:max-w-7xl'>
