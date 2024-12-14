@@ -61,7 +61,9 @@ const HeroDetails: React.FC = () => {
       },
     ],
   };
-
+  {
+    /*Handaling touch control on mobile device*/
+  }
   const handleTouchStart = (event: React.TouchEvent) => {
     console.log('user swiped');
     const touchStartX = event.touches[0].clientX;
