@@ -196,3 +196,8 @@ body {
 .canvas {
   touch-action: auto !important;
 }
+
+.slick-slider {
+  touch-action: pan-y;
+  -webkit-overflow-scrolling: touch;
+}
