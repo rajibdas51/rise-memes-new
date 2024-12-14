@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import React, { useEffect, useState } from "react";
+import React, { ChangeEvent, useEffect, useState } from "react";
 import FormButton from "../form-button";
 import CustomInput from "../custom-input";
 import Image from "next/image";
@@ -139,18 +139,67 @@ const HeroForm = () => {
   }
 
   const handleBuy = async () => {
+
     if(!isConnected) return;
+
+    if(selectedCurrency === 'ETH') {
+
+    } else if(selectedCurrency === 'USDT') {
+
+    } else {
+
+    }
   }
 
-  const handleMaxButton = () => {
-    debugLog("mx usdt");
+// Handle the presale widget input change
+const handleInputChange1 = (value) => {
+  // Allow only valid numeric inputs
+  if (isNaN(value) || value === null || value === '') {
+      setPayWithValue('0'); // Clear input for invalid values
+      setReceiveValue('0'); // Reset result
+      return;
+  }
 
+  setPayWithValue(value); // Update input field with valid value
+
+  // Common calculation logic for both ETH and USDT
+  const calculateResult = (price, value) => {
+      price = price.toString();
+      // Make sure price is a decimal and rounded up to 2 decimals
+      console.log(`Price: ${price}`);
+      if (isNaN(price) || price === 0) {
+          setReceiveValue('0');
+          return;
+      }
+
+      const tokens = new BigNumber(value).div(price).toNumber(); // Base tokens
+      console.log(`Tokens: ${tokens}`);
+
+      // Final result with tokens + bonus, rounded to 2 decimals
+      const finalResult = Math.round((tokens) * 100) / 100;
+      setReceiveValue(finalResult.toString());
+  };
+
+  if (selectedCurrency === 'ETH') {
+      const price = new BigNumber(actualPrice).shiftedBy(-6);
+      const ethAmount = new BigNumber(value); // Use `value` directly
+      const usdtAmount = ethAmount.multipliedBy(new BigNumber(actualETHPrice).shiftedBy(-6)); // Convert ETH to USDT
+      console.log(`USDT amount: ${usdtAmount.toString()}`); // Debug USDT amount
+      calculateResult(price, usdtAmount.toNumber());
+  } else {
+      const price = new BigNumber(actualPrice).shiftedBy(-6);
+      console.log(`USDT price: ${price.toString()}`); // Debug USDT price
+      calculateResult(price, value);
+  }
+};
+
+  const handleMaxButton = () => {
     if(selectedCurrency == "ETH") {
-      setPayWithValue("")
+      handleInputChange1(userBalances.eth.shiftedBy(-18).dividedBy(actualPrice.dividedBy(actualETHPrice).toFixed(10).toString()).toFixed(5).toString())
     }
 
-    if(selectedCurrency === "USDT") {
-      setPayWithValue(userBalances.usdt.dividedBy(actualPrice).shiftedBy(-6).toFixed(5));
+    if(selectedCurrency === "USDTyar") {
+      handleInputChange1(userBalances.usdt.dividedBy(actualPrice).shiftedBy(-6).toFixed(5));
     }
   }
 
@@ -262,7 +311,7 @@ const HeroForm = () => {
             <CustomInput
               label={getPayWithLabel()}
               value={payWithValue}
-              onChange={setPayWithValue}
+              onChange={(e: string) => handleInputChange1(parseFloat(e))}
               onMaxClick={() => handleMaxButton()}
             />
             <CustomInput
