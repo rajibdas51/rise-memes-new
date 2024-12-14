@@ -63,6 +63,7 @@ const HeroDetails: React.FC = () => {
   };
 
   const handleTouchStart = (event: React.TouchEvent) => {
+    console.log('user swiped');
     const touchStartX = event.touches[0].clientX;
     const slider = sliderRef.current;
 
@@ -86,7 +87,7 @@ const HeroDetails: React.FC = () => {
     <div className='min-h-screen heros' onTouchStart={handleTouchStart}>
       <Slider ref={sliderRef} {...settings}>
         {sliderData.map((slide, index) => (
-          <div key={slide.id}>
+          <div key={slide.id} onTouchStart={handleTouchStart}>
             <div
               className='bg-cover bg-center bg-no-repeat lg:py-20 py-10 lg:px-10 px-2 min-h-auto lg:max-h-auto lazy-bg'
               data-bg={slide.bg.src}
