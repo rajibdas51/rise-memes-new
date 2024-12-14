@@ -56,7 +56,7 @@ const HeroDetails: React.FC = () => {
       {
         breakpoint: 768,
         settings: {
-          arrows: false, // Disable arrows on mobile for better UX
+          arrows: true, // Disable arrows on mobile for better UX
         },
       },
     ],
