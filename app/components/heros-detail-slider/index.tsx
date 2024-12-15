@@ -1,5 +1,6 @@
 'use client';
-import React from 'react';
+
+import React, { useRef } from 'react';
 import Slider from 'react-slick';
 import Heading from '../common/heading';
 import { LeftArrow, RightArrow } from '@/app/svg';
@@ -7,6 +8,7 @@ import { sliderData } from './data';
 import Image from 'next/image';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+
 interface ArrowProps {
   onClick?: () => void;
 }
@@ -15,7 +17,7 @@ export function SampleNextArrow({ onClick }: ArrowProps) {
   return (
     <div
       onClick={onClick}
-      className='flex absolute  xl:right-[3rem] lg:right-1 right-4 lg:top-[45%] md:top-[44%] top-[30%] z-10 cursor-pointer'
+      className='flex absolute xl:right-[3rem] lg:right-1 right-4 lg:top-[45%] md:top-[44%] top-[30%] z-10 cursor-pointer'
     >
       <RightArrow />
     </div>
@@ -26,7 +28,7 @@ export function SamplePrevArrow({ onClick }: ArrowProps) {
   return (
     <div
       onClick={onClick}
-      className='flex absolute xl:left-[4rem] left-4 md:left-4 lg:left-1 lg:top-[45%] top-[30%] md:top-[44%]   z-10 cursor-pointer'
+      className='flex absolute xl:left-[4rem] left-4 md:left-4 lg:left-1 lg:top-[45%] top-[30%] md:top-[44%] z-10 cursor-pointer'
     >
       <LeftArrow />
     </div>
@@ -34,6 +36,8 @@ export function SamplePrevArrow({ onClick }: ArrowProps) {
 }
 
 const HeroDetails: React.FC = () => {
+  const sliderRef = useRef<Slider | null>(null);
+
   const settings = {
     dots: true,
     infinite: true,
@@ -41,24 +45,51 @@ const HeroDetails: React.FC = () => {
     slidesToShow: 1,
     slidesToScroll: 1,
     arrows: true,
-    nextArrow: <SampleNextArrow />,
-    prevArrow: <SamplePrevArrow />,
-
-    // Ensure mobile swiping is fully enabled
+    nextArrow: <SampleNextArrow />, // Custom right arrow
+    prevArrow: <SamplePrevArrow />, // Custom left arrow
     swipeToSlide: true,
     swipe: true,
     touchMove: true,
-    touchThreshold: 10, // Adjust sensitivity of touch
-    mobileFirst: true, // Prioritize mobile configuration
-    accessibility: true, // Improve accessibility
-    draggable: true, // Allow dragging on all devices
+    touchThreshold: 10,
+    draggable: true,
+    responsive: [
+      {
+        breakpoint: 768,
+        settings: {
+          arrows: true, // Disable arrows on mobile for better UX
+        },
+      },
+    ],
+  };
+  {
+    /*Handaling touch control on mobile device*/
+  }
+  const handleTouchStart = (event: React.TouchEvent) => {
+    console.log('user swiped');
+    const touchStartX = event.touches[0].clientX;
+    const slider = sliderRef.current;
+
+    const handleTouchEnd = (e: TouchEvent) => {
+      const touchEndX = e.changedTouches[0].clientX;
+      const diffX = touchStartX - touchEndX;
+
+      if (diffX > 50) {
+        slider?.slickNext(); // Swipe left
+      } else if (diffX < -50) {
+        slider?.slickPrev(); // Swipe right
+      }
+
+      document.removeEventListener('touchend', handleTouchEnd);
+    };
+
+    document.addEventListener('touchend', handleTouchEnd);
   };
 
   return (
-    <div className='min-h-screen heros'>
-      <Slider {...settings}>
+    <div className='min-h-screen heros' onTouchStart={handleTouchStart}>
+      <Slider ref={sliderRef} {...settings}>
         {sliderData.map((slide, index) => (
-          <div key={slide.id}>
+          <div key={slide.id} onTouchStart={handleTouchStart}>
             <div
               className='bg-cover bg-center bg-no-repeat lg:py-20 py-10 lg:px-10 px-2 min-h-auto lg:max-h-auto lazy-bg'
               data-bg={slide.bg.src}
@@ -105,7 +136,6 @@ const HeroDetails: React.FC = () => {
                     }`}
                   >
                     <Heading>{slide.title.toUpperCase()}</Heading>
-                    {/* <p className="text-gradient font-cinzel tracking-wide pt-5 font-[500] text-center md:text-left text-xs md:text-lg"> */}
                     <p className='text-[#fff1de] text-shadow-effect-para font-cinzel text-sm md:text-lg text-center md:text-left no-scrollbar'>
                       {slide.description}
                     </p>
