@@ -2,8 +2,9 @@ import React from "react";
 
 interface CustomInputProps {
   label: string;
+  type: string;
   value?: string | number;
-  onChange: (value: string) => void;
+  onChange: (value: React.ChangeEvent<HTMLInputElement>) => void;
   placeholder?: string;
   showMax?: boolean;
   onMaxClick?: () => void;
@@ -14,6 +15,7 @@ interface CustomInputProps {
 
 const CustomInput: React.FC<CustomInputProps> = ({
   label,
+  type,
   value,
   onChange,
   placeholder = "0",
@@ -23,13 +25,6 @@ const CustomInput: React.FC<CustomInputProps> = ({
   labelClassName,
   inputClassName,
 }) => {
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const newValue = e.target.value;
-
-    if (/^\d*$/.test(newValue)) {
-      onChange(newValue);
-    }
-  };
 
   const containerShadowStyle = {
     filter: "drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.6))",
@@ -46,9 +41,9 @@ const CustomInput: React.FC<CustomInputProps> = ({
 
       <div className="relative w-full h-11 border-[1.5px] border-[#230203] bg-gradient-to-b from-[#230203] via-[#430109] to-[#230203]">
         <input
-          type="text"
+          type={type}
           value={value}
-          onChange={handleChange}
+          onChange={onChange}
           placeholder={placeholder}
           disabled={disabled}
           className={`w-full h-full bg-transparent px-3 text-gradient font-semibold focus:outline-none

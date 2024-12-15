@@ -3,6 +3,7 @@ import React from "react";
 
 interface CustomButtonProps {
   label: string;
+  role: string;
   href?: string;
   className?: string;
   onClick?: () => void;
@@ -12,6 +13,7 @@ interface CustomButtonProps {
 
 const FormButton: React.FC<CustomButtonProps> = ({
   label,
+  role,
   href,
   className,
   onClick,
@@ -22,6 +24,7 @@ const FormButton: React.FC<CustomButtonProps> = ({
     <div className="relative p-[2px] rounded-sm bg-gradient-to-b from-[#977749] to-[#977749] overflow-hidden ">
       <button
         onClick={onClick}
+        role={role}
         className={`relative group overflow-hidden w-full h-full px-10 py-2 min-w-[120px] text-md text-white shadow-custom-light  ${className}`}
         style={{
           background: `

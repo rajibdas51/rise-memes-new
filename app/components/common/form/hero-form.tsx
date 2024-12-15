@@ -16,7 +16,7 @@ import jsonABI from "@/context/evmdata/PresaleABI.json";
 import jsonUSDT from "@/context/evmdata/usdt.json";
 import BigNumber from "bignumber.js";
 import { Contract, JsonRpcProvider } from "ethers";
-import { debugLog } from "@/context/Web3Context";
+import { debugLog, shortenAddress } from "@/context/Web3Context";
 
 const usedChain = jsonData.localfork;
 
@@ -40,6 +40,7 @@ const HeroForm = () => {
   const [raisedUSD, setRaisedUSD] = useState<BigNumber>(new BigNumber(0));
   const [actualPrice, setActualPrice] = useState<BigNumber>(new BigNumber(0));
   const [actualETHPrice, setActualETHPrice] = useState<BigNumber>(new BigNumber(0));
+  const [userAllowance, setUserAllowance] = useState<BigNumber>(new BigNumber(0));
   const [userBalances, setUserBalances] = useState<UserBalances>({
     eth: new BigNumber(0),
     usdt: new BigNumber(0)
@@ -50,7 +51,11 @@ const HeroForm = () => {
     stageTokens: new BigNumber(0)
   });
 
-
+  const handleConnect = async () => {
+    if(!isConnected) {
+      await open();
+    }
+  }
 
   useEffect(() => {
     const fetchPrice = async () => {
@@ -103,6 +108,17 @@ const HeroForm = () => {
         usdt: usdtbal
       });
     }
+
+    const fetchAllowance = async () => {
+      if(!address) return;
+
+      const provider = new JsonRpcProvider(usedChain.publicRPC);
+      const usdt = new Contract(usedChain.usdt, jsonUSDT, provider);
+
+      const allowance = await usdt.allowance(address, usedChain.presaleAddress);
+
+      setUserAllowance(new BigNumber(allowance));
+    }
   
     const fetchStageInfo = async () => {
       const provider = new JsonRpcProvider(usedChain.publicRPC);
@@ -124,6 +140,7 @@ const HeroForm = () => {
     fetchETHPrice();
     fetchRaisedUSD();
     fetchBalances();
+    fetchAllowance();
     fetchStageInfo();
 
   }, [actualPrice, actualETHPrice, raisedUSD, userBalances, address])
@@ -136,6 +153,11 @@ const HeroForm = () => {
     } else {
       return actualPrice.shiftedBy(-6).toFixed(6).toString();
     }
+  }
+
+  const buttonTitle = () => {
+    if(isConnected) return shortenAddress(address);
+    return "Connect Wallet";
   }
 
   const handleBuy = async () => {
@@ -155,7 +177,7 @@ const HeroForm = () => {
 const handleInputChange1 = (value) => {
   // Allow only valid numeric inputs
   if (isNaN(value) || value === null || value === '') {
-      setPayWithValue('0'); // Clear input for invalid values
+      setPayWithValue(''); // Clear input for invalid values
       setReceiveValue('0'); // Reset result
       return;
   }
@@ -177,7 +199,7 @@ const handleInputChange1 = (value) => {
 
       // Final result with tokens + bonus, rounded to 2 decimals
       const finalResult = Math.round((tokens) * 100) / 100;
-      setReceiveValue(finalResult.toString());
+      setReceiveValue(finalResult.toFixed(5).toString());
   };
 
   if (selectedCurrency === 'ETH') {
@@ -198,7 +220,7 @@ const handleInputChange1 = (value) => {
       handleInputChange1(userBalances.eth.shiftedBy(-18).dividedBy(actualPrice.dividedBy(actualETHPrice).toFixed(10).toString()).toFixed(5).toString())
     }
 
-    if(selectedCurrency === "USDTyar") {
+    if(selectedCurrency === "USDT") {
       handleInputChange1(userBalances.usdt.dividedBy(actualPrice).shiftedBy(-6).toFixed(5));
     }
   }
@@ -300,41 +322,46 @@ const handleInputChange1 = (value) => {
               isActive={
                 selectedCurrency === (currency === "CARD" ? "USD" : currency)
               }
-              onClick={() =>
-                setSelectedCurrency(currency === "CARD" ? "USD" : currency)
+              onClick={() => {
+                  setSelectedCurrency(currency === "CARD" ? "USD" : currency)
+                  handleInputChange1(payWithValue);
+                }
               }
             />
           ))}
         </div>
-        <form>
+        <div>
           <div className="w-full">
             <CustomInput
               label={getPayWithLabel()}
+              type="text"
               value={payWithValue}
-              onChange={(e: string) => handleInputChange1(parseFloat(e))}
+              onChange={(e) => handleInputChange1(e.target.value)}
               onMaxClick={() => handleMaxButton()}
             />
             <CustomInput
               label="$Rise you receive"
+              type="text"
               value={receiveValue}
-              onChange={setReceiveValue}
+              onChange={(e) => setReceiveValue(e.target.value.toString())}
               disabled
             />
           </div>
           <div className="flex flex-col gap-y-4 mt-4">
-            <FormButton label="Explore Edition" />
+            <FormButton label="Explore Edition" role="button"/>
             <FormButton
               label="Buy"
+              role="button"
               onClick={() => handleBuy()}
               radialColor1="#4b3d28"
               radialColor2="#211811"
             />
           </div>
-        </form>
+        </div>
 
         <div className="flex lg:flex-row  lg:justify-between justify-center flex-col items-center my-3 text-xs 2xl:text-sm text-gradient font-semibold uppercase z-50">
-          <Link href={"#"} className="text-gradient z-50">
-            Connect Wallet
+          <Link href={'#'} onClick={handleConnect} className="text-gradient z-50">
+            { buttonTitle() }
           </Link>
           <Link
             href={"#"}
@@ -350,7 +377,7 @@ const handleInputChange1 = (value) => {
             className="flex justify-center items-center my-5 pb-20 xl:pb-0 text-sm lg:text-md text-gradient font-semibold uppercase"
             style={containerShadowStyle}
           >
-            Powered by SolidLauch
+            Powered by SolidLaunch
           </Link>
         </div>
       </div>
