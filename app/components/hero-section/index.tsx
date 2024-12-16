@@ -20,7 +20,7 @@ const HeroSection = () => {
   return (
     <div className="w-full h-auto 2xl:h-auto bg-cover bg-left bg-no-repeat lg:bg-[url('/assets/main-hero-bg.png')]">
       <div
-        className="-z-50 w-full h-full flex flex-col-reverse lg:flex-row bg-no-repeat bg-contain bg-[url('/assets/hero-image-mobile.webp')] lg:bg-none"
+        className="-z-50 w-full h-full flex flex-col-reverse lg:flex-row bg-no-repeat bg-contain bg-[url('/assets/hero-image-mobile.png')] lg:bg-none"
         style={{
           backgroundPosition: '70% 100%',
         }}
