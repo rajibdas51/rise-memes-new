@@ -6,6 +6,7 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import Footer from './components/shared/footer';
 import AnimationProvider from './components/provider/animation-provider';
+import Script from 'next/script';
 
 export const metadata: Metadata = {
   metadataBase: new URL('http://51.20.109.37/'),
@@ -75,15 +76,22 @@ export default function RootLayout({
           content='width=device-width, initial-scale=1, maximum-scale=1'
         />
         <meta httpEquiv='x-ua-compatible' content='ie=edge' />
-        <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-2G2RQQC6MB"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-2G2RQQC6MB');
-</script>
+        <Script
+          async
+          src='https://www.googletagmanager.com/gtag/js?id=G-2G2RQQC6MB'
+        ></Script>
+        <Script
+          src='https://www.googletagmanager.com/gtag/js?id=G-2G2RQQC6MB'
+          strategy='afterInteractive'
+        />
+        <Script id='google-analytics' strategy='afterInteractive'>
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-2G2RQQC6MB');
+          `}
+        </Script>
       </head>
       <body className={clsx('font-cinzel antialiased')}>
         <AnimationProvider>
