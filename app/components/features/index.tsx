@@ -32,7 +32,7 @@ const Features: FC<Props> = () => {
               data-aos-easing='ease-in-sine'
               className=' w-full flex justify-center items-center '
             >
-              <Image src={mobile} alt='' className='' loading='lazy' />
+              <Image src={mobile} alt='' className='' />
             </div>
             <div className=' w-full'>
               <div
@@ -63,7 +63,6 @@ const Features: FC<Props> = () => {
       <Image
         src={mask}
         alt=''
-        loading='lazy'
         className='absolute -lg:bottom-20 bottom-0 -z-10 lg:right-0'
       />
     </div>
