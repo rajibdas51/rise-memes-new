@@ -11,12 +11,12 @@ import Script from 'next/script';
 export const metadata: Metadata = {
   metadataBase: new URL('http://51.20.109.37/'),
   title: {
-    default: 'The Rise Memes',
-    template: '%s | The Rise Memes',
+    default: 'The Rise Of Memes',
+    template: '%s | The Rise Of Memes',
   },
   description: 'A fun multiplayer game blending strategy and memes!',
   keywords: [
-    'The Rise Meme',
+    'The Rise Of Memes',
     'multiplayer game',
     'online game',
     'meme game',
@@ -24,10 +24,10 @@ export const metadata: Metadata = {
     'strategy game',
   ],
   openGraph: {
-    title: 'The Rise Meme',
+    title: 'The Rise Of Memes',
     description: 'A fun multiplayer game blending strategy and memes!',
     url: 'http://51.20.109.37/',
-    siteName: 'The Rise Meme',
+    siteName: 'The Rise Of Memes',
     images: [
       {
         url: 'assets/logo.png',
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'The Rise Meme',
+    title: 'The Rise Of Memes',
     description: 'A fun multiplayer game blending strategy and memes!',
     images: ['assets/logo.png'],
   },
@@ -105,7 +105,7 @@ export default function RootLayout({
             __html: JSON.stringify({
               '@context': 'https://schema.org',
               '@type': 'VideoGame',
-              name: 'The Rise Memes',
+              name: 'The Rise Of Memes',
               url: 'http://51.20.109.37/',
               description:
                 'A fun multiplayer game blending strategy and memes!',
