@@ -21,7 +21,6 @@ const EditionCard: React.FC<EditionCardProps> = ({
   pricingText,
   price,
   pricingPosition = 'top-left',
-  boldFirstReward = false,
 }) => {
   const getPricingTextContainerStyles = () => {
     const baseStyles =
@@ -185,7 +184,6 @@ const GameEditionsGrid: React.FC = () => {
                 price={edition.price}
                 pricingPosition={index <= 1 ? 'bottom-left' : 'top-left'}
                 pricingText='of $RISE Tokens and Enjoy The Following Rewards!'
-                boldFirstReward={index >= 2}
               />
             </div>
           ))}
