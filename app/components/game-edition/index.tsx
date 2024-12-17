@@ -133,7 +133,7 @@ const GameEditionsGrid: React.FC = () => {
         { text: 'X3 BOOST TO EARNING RISE TOKENS FOR 3 MONTH' },
         { text: 'LEGENDARY GAME CHESTS WITH UNIQUE ITEMS' },
         { text: 'LEVEL 3 RESOURCES PACKS' },
-        { text: 'Legendary Game Items' },
+        { text: 'LEGENDARY GAME ITEMS' },
       ],
     },
     {
