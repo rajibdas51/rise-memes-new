@@ -28,7 +28,7 @@ const Features: FC<Props> = () => {
           <div className='grid xl:grid-cols-2 grid-cols-1 justify-center items-start gap-5 flex-wrap'>
             <div
               data-aos='fade-right'
-              data-aos-offset='300'
+              data-aos-offset='10'
               data-aos-easing='ease-in-sine'
               className=' w-full flex justify-center items-center '
             >
