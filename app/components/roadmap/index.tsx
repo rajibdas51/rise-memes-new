@@ -30,59 +30,61 @@ const Roadmap = () => {
 
         <div className="p-0 m-0 flex justify-center h-full w-full pb-8 mg:pb-0 ">
           <div
-            className="lg:h-[1260px]  h-0  w-full bg-cover bg-center  lg:block hidden  relative"
+            className="sm:h-[1260px]  h-0  w-full bg-cover bg-center  sm:block hidden  relative"
             style={{
               backgroundImage: `url(${img.src})`,
               backgroundRepeat: "no-repeat",
+              backgroundPosition: "center",
             }}
           >
-            <div className="absolute dxl:left-[90px] dxl:top-[110px] xxl:left-[0px] xxl:top-[110px]  lg:left-[0px] lg:top-[90px] ">
+            <div className="absolute dxl:left-[90px] dxl:top-[110px] xxl:left-[0px] xxl:top-[110px]  lg:left-[0px] lg:top-[90px]      md:left-[0px] md:top-[90px]   sm:left-[30px] sm:top-[90px]    ">
               <BlurBackgroundWithText1></BlurBackgroundWithText1>
             </div>
-            <div className="absolute dxl:left-[650px] dxl:top-[280px] xx:left-[400px] xxl:top-[330px]  lg:left-[300px] lg:top-[330px]   ">
+            <div className="absolute dxl:left-[650px] dxl:top-[280px] xx:left-[400px] xxl:top-[330px]  lg:left-[300px] lg:top-[330px]   md:left-[30px] md:top-[330px]   sm:left-[30px] sm:top-[370px]   ">
               <BlurBackgroundWithText2></BlurBackgroundWithText2>
             </div>
-            <div className="absolute dxl:right-[650px] dxl:top-[60px]  xxl:right-[650px] xxl:top-[60px]   lg:right-[380px] lg:top-[60px] ">
+            <div className="absolute dxl:right-[650px] dxl:top-[60px]  xxl:right-[650px] xxl:top-[60px]   lg:right-[380px] lg:top-[60px]  md:right-[180px] md:top-[40px] sm:right-[0px] sm:top-[90px]  ">
               <BlurBackgroundWithText3></BlurBackgroundWithText3>
             </div>
-            <div className="absolute dxl:right-[180px] dxl:top-[230px]   xxl:right-[180px] xxl:top-[230px]       lg:right-[60px] lg:top-[230px]    ">
+            <div className="absolute dxl:right-[180px] dxl:top-[230px]   xxl:right-[180px] xxl:top-[230px]       lg:right-[60px] lg:top-[230px]    md:right-[150px] md:top-[250px]  sm:right-[30px] sm:top-[320px]  ">
               <BlurBackgroundWithText4></BlurBackgroundWithText4>
             </div>
             <div className="absolute right-[80px]  bottom-[420px]">
               <BlurBackgroundWithText5></BlurBackgroundWithText5>
             </div>
-            <div className="absolute dxl:right-[750px]  dxl:bottom-[260px] xxl:right-[550px]  xxl:bottom-[260px]  lg:right-[250px]  lg:bottom-[200px]">
+            <div className="absolute dxl:right-[750px]  dxl:bottom-[260px] xxl:right-[550px]  xxl:bottom-[260px]  lg:right-[250px]  lg:bottom-[200px] md:right-[200px]  md:bottom-[190px]  xs:left-[280px] xs:bottom-[220px]  ">
               <BlurBackgroundWithText6></BlurBackgroundWithText6>
             </div>
-            <div className="absolute dxl:left-[230px]  dxl:bottom-[300px] lg:left-[30px]  lg:bottom-[300px]">
+            <div className="absolute dxl:left-[230px]  dxl:bottom-[300px] lg:left-[30px]  lg:bottom-[300px]  md:left-[30px]  md:bottom-[301px]  xs:left-[30px] xs:bottom-[270px]   ">
               <RoadmapLogo></RoadmapLogo>
             </div>
           </div>
 
           <div
-            className=" lg:hidden block w-full h-[2300px] m-auto mx-[30px]"
+            className=" sm:hidden block  w-screen h-[1100px] "
             style={{
               backgroundImage: `url(${roadmapMobile.src})`,
               backgroundRepeat: "no-repeat",
-              backgroundPosition: "center",
+             backgroundPosition: "center",
+              backgroundSize: "contain"
             }}
           >
-            <div className="absolute  md:top-[300px] md:left-[300px] top-[300px] left-[70px]">
+            <div className="absolute  xs:top-[150px] xs:left-[110px]  xxs:top-[270px] xxs:left-[160px]">
               <BlurBackgroundWithText6Mobile></BlurBackgroundWithText6Mobile>
             </div>
-            <div className="absolute md:top-[900px] md:left-[120px] top-[850px] left-[20px]">
+            <div className="absolute xs:top-[400px] xs:left-[30px]  xxs:top-[340px] xxs:left-[00px]"> 
               <BlurBackgroundWithText5Mobile></BlurBackgroundWithText5Mobile>
             </div>
-            <div className="absolute top-[1050px] right-[30px]">
+            <div className="absolute xs:top-[560px] xs:right-[30px]  xxs:top-[480px] xxs:right-[00px]">
               <BlurBackgroundWithText4Mobile></BlurBackgroundWithText4Mobile>
             </div>
-            <div className="absolute bottom-[800px] left-[30px]">
+            <div className="absolute xs:bottom-[270px] xs:left-[30px] xxs:bottom-[380px] xxs:left-[0px]">
               <BlurBackgroundWithText3Mobile></BlurBackgroundWithText3Mobile>
             </div>
-            <div className="absolute  bottom-[300px] right-[100px]">
+            <div className="absolute  xs:bottom-[150px] xs:right-[20px] xxs:bottom-[250px] xxs:right-[0px]">
               <BlurBackgroundWithText2Mobile></BlurBackgroundWithText2Mobile>
             </div>
-            <div className="absolute md:bottom-[100px] md:left-[80px]    bottom-[100px] left-[60px]  ">
+            <div className="absolute   xs:bottom-[10px] xs:left-[60px] xxs:bottom-[130px] xxs:left-[0px]  ">
               <BlurBackgroundWithText1Mobile></BlurBackgroundWithText1Mobile>
             </div>
           </div>
