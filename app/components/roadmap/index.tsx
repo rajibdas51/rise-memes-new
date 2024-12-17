@@ -34,7 +34,7 @@ const Roadmap = () => {
             style={{
               backgroundImage: `url(${img.src})`,
               backgroundRepeat: "no-repeat",
-              backgroundPosition: "center",
+              backgroundPosition: "contain",
             }}
           >
             <div className="absolute dxl:left-[90px] dxl:top-[110px] xxl:left-[0px] xxl:top-[110px]  lg:left-[0px] lg:top-[90px]      md:left-[0px] md:top-[90px]   sm:left-[30px] sm:top-[90px]    ">
@@ -52,7 +52,7 @@ const Roadmap = () => {
             <div className="absolute right-[80px]  bottom-[420px]">
               <BlurBackgroundWithText5></BlurBackgroundWithText5>
             </div>
-            <div className="absolute dxl:right-[750px]  dxl:bottom-[260px] xxl:right-[550px]  xxl:bottom-[260px]  lg:right-[250px]  lg:bottom-[200px] md:right-[200px]  md:bottom-[190px]  xs:left-[280px] xs:bottom-[220px]  ">
+            <div className="absolute dxl:right-[750px]  dxl:bottom-[260px] xxl:left-[800px]  xxl:bottom-[260px]  lg:right-[250px]  lg:bottom-[200px] md:right-[200px]  md:bottom-[190px]  xs:left-[280px] xs:bottom-[220px]  ">
               <BlurBackgroundWithText6></BlurBackgroundWithText6>
             </div>
             <div className="absolute dxl:left-[230px]  dxl:bottom-[300px] lg:left-[30px]  lg:bottom-[300px]  md:left-[30px]  md:bottom-[301px]  xs:left-[30px] xs:bottom-[270px]   ">
@@ -69,22 +69,22 @@ const Roadmap = () => {
               backgroundSize: "contain"
             }}
           >
-            <div className="absolute  xs:top-[150px] xs:left-[110px]  xxs:top-[270px] xxs:left-[160px]">
+            <div className="absolute  xs:top-[150px] xs:left-[110px]  xxs:top-[305px] xxs:left-[160px]    mini:top-[305px] mini:left-[160px]     ">
               <BlurBackgroundWithText6Mobile></BlurBackgroundWithText6Mobile>
             </div>
-            <div className="absolute xs:top-[400px] xs:left-[30px]  xxs:top-[340px] xxs:left-[00px]"> 
+            <div className="absolute xs:top-[370px] xs:left-[0px]  xxs:top-[380px] xxs:left-[00px] mini:top-[305px] mini:left-[160px]  "> 
               <BlurBackgroundWithText5Mobile></BlurBackgroundWithText5Mobile>
             </div>
-            <div className="absolute xs:top-[560px] xs:right-[30px]  xxs:top-[480px] xxs:right-[00px]">
+            <div className="absolute xs:top-[530px] xs:left-[270px]  xxs:top-[500px] xxs:left-[130px] mini:top-[305px] mini:left-[160px]  ">
               <BlurBackgroundWithText4Mobile></BlurBackgroundWithText4Mobile>
             </div>
-            <div className="absolute xs:bottom-[270px] xs:left-[30px] xxs:bottom-[380px] xxs:left-[0px]">
+            <div className="absolute xs:top-[680px] xs:left-[0px] xxs:bottom-[410px] xxs:left-[0px] mini:top-[305px] mini:left-[160px]  ">
               <BlurBackgroundWithText3Mobile></BlurBackgroundWithText3Mobile>
             </div>
-            <div className="absolute  xs:bottom-[150px] xs:right-[20px] xxs:bottom-[250px] xxs:right-[0px]">
+            <div className="absolute  xs:top-[800px] xs:left-[260px] xxs:bottom-[310px] xxs:left-[110px] mini:top-[305px] mini:left-[160px]  ">
               <BlurBackgroundWithText2Mobile></BlurBackgroundWithText2Mobile>
             </div>
-            <div className="absolute   xs:bottom-[10px] xs:left-[60px] xxs:bottom-[130px] xxs:left-[0px]  ">
+            <div className="absolute   xs:top-[960px] xs:left-[120px] xxs:bottom-[180px] xxs:left-[0px]  mini:top-[305px] mini:left-[160px]  ">
               <BlurBackgroundWithText1Mobile></BlurBackgroundWithText1Mobile>
             </div>
           </div>

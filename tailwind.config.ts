@@ -45,15 +45,8 @@ const config: Config = {
           "0px 2px 10px rgba(14, 30, 37, 1), 0px 2px 20px rgba(14, 30, 37, 1 )",
       },
       screens: {
-
-        // xxs: "480px",
-        // xs: "640px",
-        // md:"900px",
-        // lg:"999px",
-        // xl:"1100px",
-        // xxl: "1400px",
-        // dxl: "1800px",
-        xxs: "320px",  // Added 320px screen
+        mini: "320px",
+        xxs: "400px",  
         xs: "590px",
         sm: "640px",
         md: "900px",
