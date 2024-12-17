@@ -78,8 +78,12 @@ const EditionCard: React.FC<EditionCardProps> = ({
                 className='object-contain'
               />
               <span
-                className={`text-[#fff1de] text-glow ${
+                className={` ${
                   boldFirstReward && index === 0 ? 'font-[600]' : ''
+                } ${
+                  index === rewards.length - 1
+                    ? 'text-green-500 font-bold'
+                    : 'text-[#fff1de] text-glow'
                 }`}
               >
                 {reward.text}
@@ -145,7 +149,7 @@ const GameEditionsGrid: React.FC = () => {
         { text: 'LEGENDARY GAME CHESTS WITH UNIQUE ITEMS' },
         { text: 'LEVEL 4 RESOURCES PACKS' },
         { text: 'LEGENDARY GAME ITEMS' },
-        { text: '+25% TOKENS' },
+        { text: '+20% TOKENS' },
       ],
     },
     {
@@ -158,7 +162,7 @@ const GameEditionsGrid: React.FC = () => {
         { text: 'LEGENDARY GAME CHESTS WITH UNIQUE ITEMS' },
         { text: 'LEVEL 5 RESOURCES PACKS' },
         { text: 'LEGENDARY GAME ITEMS' },
-        { text: '+40% TOKENS' },
+        { text: '+25% TOKENS' },
       ],
     },
   ];
