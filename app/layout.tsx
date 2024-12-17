@@ -75,6 +75,15 @@ export default function RootLayout({
           content='width=device-width, initial-scale=1, maximum-scale=1'
         />
         <meta httpEquiv='x-ua-compatible' content='ie=edge' />
+        <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2G2RQQC6MB"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-2G2RQQC6MB');
+</script>
       </head>
       <body className={clsx('font-cinzel antialiased')}>
         <AnimationProvider>
