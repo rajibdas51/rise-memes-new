@@ -79,12 +79,10 @@ const EditionCard: React.FC<EditionCardProps> = ({
               />
               <span
                 className={` ${
-                  boldFirstReward && index === 0 ? 'font-[600]' : ''
-                } ${
-                  index === rewards.length - 1
-                    ? 'text-green-500 font-bold'
+                  index === 0
+                    ? 'font-[600] text-green-500 '
                     : 'text-[#fff1de] text-glow'
-                }`}
+                }  `}
               >
                 {reward.text}
               </span>
@@ -108,11 +106,11 @@ const GameEditionsGrid: React.FC = () => {
       price: ' $100 Worth ',
       image: '/assets/game-edition/warrior-edition.png',
       rewards: [
-        { text: 'X1.5 BOOST TO EARNING RISE TOKENS FOR 1 MONTH' },
+        { text: '+5% TOKENS' },
         { text: 'PREMIUM GAME CHESTS WITH UNIQUE ITEMS' },
         { text: 'LEVEL 1 RESOURCES PACKS' },
         { text: 'EPIC GAME ITEMS' },
-        { text: '+5% TOKENS' },
+        { text: 'X1.5 BOOST TO EARNING RISE TOKENS FOR 1 MONTH' },
       ],
     },
     {
@@ -120,11 +118,11 @@ const GameEditionsGrid: React.FC = () => {
       price: ' $250 Worth ',
       image: '/assets/game-edition/duke-edition.png',
       rewards: [
-        { text: 'X2 BOOST TO EARNING RISE TOKENS FOR 2 MONTH' },
+        { text: '+10% TOKENS' },
         { text: 'EPIC GAME CHESTS WITH UNIQUE ITEMS' },
         { text: 'LEVEL 2 RESOURCES PACKS' },
         { text: 'LEGENDARY GAME ITEMS' },
-        { text: '+10% TOKENS' },
+        { text: 'X2 BOOST TO EARNING RISE TOKENS FOR 2 MONTH' },
       ],
     },
     {
@@ -132,11 +130,10 @@ const GameEditionsGrid: React.FC = () => {
       price: ' $1000 Worth ',
       image: '/assets/game-edition/king-edition.png',
       rewards: [
-        { text: '25 CM STATUETTE OF YOUR CHOICE' },
+        { text: '+15% TOKENS' },
         { text: 'X3 BOOST TO EARNING RISE TOKENS FOR 3 MONTH' },
         { text: 'LEGENDARY GAME CHESTS WITH UNIQUE ITEMS' },
         { text: 'LEVEL 3 RESOURCES PACKS' },
-        { text: '+15% TOKENS' },
       ],
     },
     {
@@ -144,12 +141,11 @@ const GameEditionsGrid: React.FC = () => {
       price: ' $2500 Worth ',
       image: '/assets/game-edition/collector-edition.png',
       rewards: [
-        { text: '25 CM STATUETTE OF YOUR CHOICE' },
+        { text: '+20% TOKENS' },
         { text: 'X5 BOOST TO EARNING RISE TOKENS FOR 5 MONTH' },
         { text: 'LEGENDARY GAME CHESTS WITH UNIQUE ITEMS' },
         { text: 'LEVEL 4 RESOURCES PACKS' },
         { text: 'LEGENDARY GAME ITEMS' },
-        { text: '+20% TOKENS' },
       ],
     },
     {
@@ -157,12 +153,11 @@ const GameEditionsGrid: React.FC = () => {
       price: ' $5000 Worth ',
       image: '/assets/game-edition/legendary-edtion.png',
       rewards: [
-        { text: '25 CM STATUETTE OF YOUR CHOICE' },
+        { text: '+25% TOKENS' },
         { text: 'X10 BOOST TO EARNING RISE TOKENS FOR 5 MONTH' },
         { text: 'LEGENDARY GAME CHESTS WITH UNIQUE ITEMS' },
         { text: 'LEVEL 5 RESOURCES PACKS' },
         { text: 'LEGENDARY GAME ITEMS' },
-        { text: '+25% TOKENS' },
       ],
     },
   ];
