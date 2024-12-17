@@ -46,8 +46,8 @@ const config: Config = {
       },
       screens: {
         mini: "320px",
-        xxs: "400px",  
-        xs: "590px",
+        xxs: "450px",  
+        xs: "560px",
         sm: "640px",
         md: "900px",
         lg: "999px",
