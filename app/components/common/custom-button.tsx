@@ -1,5 +1,5 @@
-import Link from "next/link";
-import React from "react";
+import Link from 'next/link';
+import React from 'react';
 
 interface CustomButtonProps {
   label: string;
@@ -32,22 +32,25 @@ const CustomButton = ({
         }}
       >
         <div
-          className="absolute inset-0 bg-center bg-no-repeat"
+          className='absolute inset-0 bg-center bg-no-repeat'
           data-bg="url('/assets/button-stars.svg"
         />
 
-        <div className="relative text-gradient font-bold uppercase z-50 whitespace-nowrap overflow-visible">
+        <div
+          style={{ width: 'fit-content' }}
+          className='relative text-gradient font-bold uppercase z-50 whitespace-nowrap overflow-visible'
+        >
           {label}
         </div>
 
-        <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-          <div className="absolute inset-0 bg-red-500/10" />
+        <div className='absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300'>
+          <div className='absolute inset-0 bg-red-500/10' />
         </div>
 
-        <div className="absolute -top-[4px] -left-[4px] w-3 h-3 rounded-2xl border-[1.5px] border-[#fab254]" />
-        <div className="absolute -top-[4px] -right-[4px] w-3 h-3 rounded-2xl border-[1.5px] border-[#fab254]" />
-        <div className="absolute -bottom-[4px] -left-[4px] w-3 h-3 rounded-2xl border-[1.5px] border-[#fab254]" />
-        <div className="absolute -bottom-[4px] -right-[4px] w-3 h-3 rounded-2xl border-[1.5px] border-[#fab254]" />
+        <div className='absolute -top-[4px] -left-[4px] w-3 h-3 rounded-2xl border-[1.5px] border-[#fab254]' />
+        <div className='absolute -top-[4px] -right-[4px] w-3 h-3 rounded-2xl border-[1.5px] border-[#fab254]' />
+        <div className='absolute -bottom-[4px] -left-[4px] w-3 h-3 rounded-2xl border-[1.5px] border-[#fab254]' />
+        <div className='absolute -bottom-[4px] -right-[4px] w-3 h-3 rounded-2xl border-[1.5px] border-[#fab254]' />
       </button>
     </div>
   );
