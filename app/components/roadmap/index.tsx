@@ -1,8 +1,6 @@
 import React from "react";
-
 import img from "/public/assets/roadmap/roadmap-desktop.png";
 import roadmapMobile from "/public/assets/roadmap/roadmap-mobile.png";
-
 import BlurBackgroundWithText1 from "./BlurBackgroundWithText1";
 import BlurBackgroundWithText2 from "./BlurBackgroundWithText2";
 import BlurBackgroundWithText3 from "./BlurBackgroundWithText3";
@@ -65,14 +63,14 @@ const Roadmap = () => {
             style={{
               backgroundImage: `url(${roadmapMobile.src})`,
               backgroundRepeat: "no-repeat",
-             backgroundPosition: "center",
-              backgroundSize: "contain"
+              backgroundPosition: "center",
+              backgroundSize: "contain",
             }}
           >
             <div className="absolute  xs:top-[150px] xs:left-[110px]  xxs:top-[305px] xxs:left-[160px]    mini:top-[305px] mini:left-[160px]     ">
               <BlurBackgroundWithText6Mobile></BlurBackgroundWithText6Mobile>
             </div>
-            <div className="absolute xs:top-[370px] xs:left-[0px]  xxs:top-[380px] xxs:left-[00px] mini:top-[305px] mini:left-[160px]  "> 
+            <div className="absolute xs:top-[370px] xs:left-[0px]  xxs:top-[380px] xxs:left-[00px] mini:top-[305px] mini:left-[160px]  ">
               <BlurBackgroundWithText5Mobile></BlurBackgroundWithText5Mobile>
             </div>
             <div className="absolute xs:top-[530px] xs:left-[270px]  xxs:top-[500px] xxs:left-[130px] mini:top-[305px] mini:left-[160px]  ">
