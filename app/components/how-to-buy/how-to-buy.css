@@ -3,11 +3,12 @@
   width: 100%;
   max-width: 100%;
   margin: 0 auto;
-  overflow: hidden;
+  overflow: visible;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  height: auto;
 }
 
 @media (min-width: 1400px) {
@@ -105,3 +106,9 @@
 }
 
 /* how to buy seciton mobile styles*/
+@media (max-width: 768px) {
+  .buy-container {
+    background-size: contain!;
+    background-position: center center;
+  }
+}
