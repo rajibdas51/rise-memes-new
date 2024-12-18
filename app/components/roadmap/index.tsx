@@ -59,7 +59,7 @@ const Roadmap = () => {
           </div>
 
           <div
-            className=" sm:hidden block  w-screen h-[1100px] "
+            className=" sm:hidden block  w-screen h-[600px] "
             style={{
               backgroundImage: `url(${roadmapMobile.src})`,
               backgroundRepeat: "no-repeat",
