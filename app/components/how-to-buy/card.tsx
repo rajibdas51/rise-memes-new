@@ -11,7 +11,7 @@ interface CardProps {
 const Card: React.FC<CardProps> = ({ title, description, subtitle }) => {
   return (
     <div
-      className='relative lg:px-5 px-3 md:px-2 backdrop-blur-[3px] lg:max-w-[538px] md:h-[322px] md:max-w-[345px] h-[240px] overflow-hidden flex flex-col justify-center items-center lg:gap-4 gap-1 bg-contain   bg-center lazy-bg w-full bg-no-repeat pb-1'
+      className='relative lg:px-5 px-3 md:px-2 backdrop-blur-[3px] lg:max-w-[538px] md:h-[322px] md:max-w-[345px] h-[230px] overflow-hidden flex flex-col justify-center items-center lg:gap-4 gap-1 bg-contain   bg-center lazy-bg w-full bg-no-repeat pb-1'
       data-bg='/assets/buyframe.png'
     >
       <h1 className='lg:text-[28.36px] text-[20px] mt-4 lg:leading-[46px] leading-[30px] font-bold bg-gradient-to-b from-[#E4D9BD] to-[#AA8246] bg-clip-text text-transparent text-center'>
