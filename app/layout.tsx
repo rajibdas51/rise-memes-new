@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     default: 'The Rise Of Memes',
     template: '%s | The Rise Of Memes',
   },
-  description: 'A fun multiplayer game blending strategy and memes!',
+  description: 'Build your empire in the world of crypto memes.',
   keywords: [
     'The Rise Of Memes',
     'multiplayer game',
@@ -22,6 +22,12 @@ export const metadata: Metadata = {
     'meme game',
     'competitive gaming',
     'strategy game',
+    'the rise of memes',
+    'p2e game',
+    'strategy game',
+    'p2e rpg',
+    'memecoin game',
+    'crypto game',
   ],
   openGraph: {
     title: 'The Rise Of Memes',

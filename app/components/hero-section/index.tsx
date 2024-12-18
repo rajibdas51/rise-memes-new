@@ -72,11 +72,12 @@ const HeroSection = () => {
           >
             <Image
               src='/assets/hero-form-bg.png'
-              width={100}
+              width={400}
               height={100}
               alt='Background'
-              className='absolute top-0 left-0 w-full h-[120%] md:h-[150%] sm:h-[100vh] object-cover md:object-cover lg:object-cover filter brightness-75'
+              className='absolute top-0 left-0 w-full h-[120%]  md:h-[120%] sm:h-[100vh] object-cover md:object-cover lg:object-cover filter brightness-70'
             />
+
             <HeroForm />
           </div>
           <div className='w-28 h-[180px] md:hidden bg-transparent'></div>

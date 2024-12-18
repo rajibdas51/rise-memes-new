@@ -38,7 +38,7 @@ const Features: FC<Props> = () => {
               <div
                 data-aos='fade-left'
                 data-aos-anchor='#example-anchor'
-                data-aos-offset='500'
+                data-aos-offset='10'
                 className='flex flex-wrap justify-center 2xl:gap-7 gap-4  p-3 '
               >
                 {features.map((feature, index) => (
