@@ -63,6 +63,7 @@ const Features: FC<Props> = () => {
       <Image
         src={mask}
         alt=''
+        quality={100}
         className='absolute -lg:bottom-20 bottom-0 -z-10 lg:right-0'
       />
     </div>
