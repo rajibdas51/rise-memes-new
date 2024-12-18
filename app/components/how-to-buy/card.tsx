@@ -42,7 +42,7 @@ const Card: React.FC<CardProps> = ({ title, description, subtitle }) => {
         {title}
       </h1>
       <p
-        className='text-center text-[#FFF1DE] mt-0 pt-2 px-4  text-wrap  font-medium 
+        className='text-center text-[#FFF1DE] mt-0 pt-2 px-2  text-wrap  font-medium 
              text-[14px] lg:leading-[21px] leading-[20px]
              lg:text-[17px]   
       '
