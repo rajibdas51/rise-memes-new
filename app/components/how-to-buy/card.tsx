@@ -11,7 +11,7 @@ interface CardProps {
 const Card: React.FC<CardProps> = ({ title, description, subtitle }) => {
   return (
     <div
-      className='buy-container relative lg:px-5 px-3 md:px-2 backdrop-blur-[3px] lg:max-w-[538px] md:h-[322px] md:max-w-[345px] h-[280px] overflow-hidden flex flex-col justify-center items-center lg:gap-4 gap-1 !bg-contain md:bg-cover z-50   md:pt-0  bg-center lazy-bg w-[93vw] bg-no-repeat pb-1'
+      className='buy-container relative lg:px-5 px-3 md:px-2 backdrop-blur-[3px] lg:max-w-[538px] md:h-[322px] md:max-w-[345px] h-[320px] overflow-hidden flex flex-col justify-center items-center lg:gap-4 gap-1 !bg-contain md:bg-cover z-50   md:pt-0  bg-center lazy-bg w-[93vw] bg-no-repeat pb-1'
       data-bg='/assets/buyframe.png'
       style={{ backgroundSize: 'contain!' }}
     >
