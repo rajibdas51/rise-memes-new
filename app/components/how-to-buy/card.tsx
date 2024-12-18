@@ -30,7 +30,7 @@ const Card: React.FC<CardProps> = ({ title, description, subtitle }) => {
   }, []);
   return (
     <div
-      className='buy-container relative lg:px-5 px-3 md:px-2 backdrop-blur-[3px] lg:max-w-[538px] md:h-[322px] md:max-w-[345px] h-[280px] overflow-hidden flex flex-col justify-center items-center lg:gap-4 gap-1 !bg-contain md:bg-cover z-50 md:pt-0 bg-center lazy-bg w-[93vw] bg-no-repeat pb-1 mx-8 md:mx-0'
+      className='buy-container relative lg:px-5 px-3 md:px-2 backdrop-blur-[3px] lg:max-w-[538px] md:h-[322px] md:max-w-[345px] h-[320px] overflow-hidden flex flex-col justify-center items-center lg:gap-4 gap-1 !bg-contain md:bg-cover z-50 md:pt-0 bg-center lazy-bg w-[93vw] bg-no-repeat pb-1 mx-8 md:mx-0'
       style={{
         backgroundImage: isMobile ? 'none' : 'url(/assets/buyframe.png)',
         backgroundSize: isMobile ? 'none' : 'contain',
@@ -43,7 +43,7 @@ const Card: React.FC<CardProps> = ({ title, description, subtitle }) => {
       </h1>
       <p
         className='text-center text-[#FFF1DE] mt-0 pt-2 px-4  text-wrap  font-medium 
-             text-[15px] lg:leading-[21px] leading-[20px]
+             text-[14px] lg:leading-[21px] leading-[20px]
              lg:text-[17px]   
       '
       >
