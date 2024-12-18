@@ -19,14 +19,14 @@ const Card: React.FC<CardProps> = ({ title, description, subtitle }) => {
         {title}
       </h1>
       <p
-        className='text-center text-[#FFF1DE] mt-0 pt-4 px-1  text-wrap  font-medium 
+        className='text-center text-[#FFF1DE] mt-0 pt-2 px-1  text-wrap  font-medium 
              text-[12px] lg:leading-[21px] leading-[18px]
              lg:text-[17px]   
       '
       >
         {description}
       </p>
-      <h1 className='lg:text-[38.36px] mt- text-[20px] lg:leading-[46px] leading-[30px] font-bold bg-gradient-to-b from-[#E4D9BD] to-[#AA8246] bg-clip-text text-transparent text-center'>
+      <h1 className='lg:text-[38.36px] mt- text-[18px] lg:leading-[46px] leading-[30px] font-bold bg-gradient-to-b pb-1 from-[#E4D9BD] to-[#AA8246] bg-clip-text text-transparent text-center'>
         {subtitle}
       </h1>
     </div>
