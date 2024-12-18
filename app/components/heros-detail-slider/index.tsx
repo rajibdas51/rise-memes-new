@@ -122,10 +122,11 @@ const HeroDetails: React.FC = () => {
                     quality={100}
                     className={`block !relative brightness-125  md:!hidden w-full h-full lg:object-cover lg:rounded-2xl rounded-xl object-fill`}
                     style={{
+                      filter: 'brightness(1.3)',
                       maskImage:
-                        'linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0))',
+                        'linear-gradient(to bottom, rgba(0,0,0,1.2), rgba(0,0,0,0))',
                       WebkitMaskImage:
-                        'linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0))',
+                        'linear-gradient(to bottom, rgba(0,0,0,1.2), rgba(0,0,0,0))',
                     }}
                     loading='lazy'
                   />
