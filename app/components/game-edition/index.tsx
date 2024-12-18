@@ -29,7 +29,7 @@ const EditionCard: React.FC<EditionCardProps> = ({
       'top-left': 'top-20 -left-4 -rotate-6',
       'top-right': 'top-4 right-4 rotate-6',
       'bottom-left':
-        'top-[325px] lg:top-[280px] xl:top-[300px] -left-4 -rotate-6',
+        'top-[310px] xs:top-[320px] sm:top-[320px]  lg:top-[280px] xl:top-[300px] -left-4 -rotate-6',
       'bottom-right': 'bottom-4 right-4 -rotate-6',
     };
     return `${baseStyles} ${positions[pricingPosition]}`;
@@ -40,7 +40,7 @@ const EditionCard: React.FC<EditionCardProps> = ({
       id='gameedition'
       className=' max-w-md mx-auto lg:p-8 p-2 relative flex flex-col justify-between bg-transparent'
     >
-      <div className='relative bg-transparent p-6 flex-grow'>
+      <div className=' relative bg-transparent p-6 flex-grow'>
         <h2 className='text-2xl md:text-3xl mb-10 text-center text-nowrap text-gradient font-avon font-bold'>
           {title}
         </h2>

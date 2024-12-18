@@ -40,7 +40,7 @@ export default function HowToBuy() {
   ];
 
   return (
-    <div className='carousel-container pt-20 lg:pb-48 pb-28 px-4 sm:px-0'>
+    <div className='carousel-container pt-20 lg:pb-48 pb-28 px-0 md:px-4 sm:px-0'>
       <TitleHeading>HOW TO BUY</TitleHeading>
 
       <div className='w-full flex justify-center items-center relative mt-5 lg:mt-0'>

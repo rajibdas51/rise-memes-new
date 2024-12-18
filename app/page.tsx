@@ -16,6 +16,7 @@ import Tokenmoics from './components/tokenomics';
 import bg from '/public/assets/Tokenomics-bg.png';
 
 import { lazyLoadBackgrounds } from './ utils/lazyBackgrounds';
+import InfiniteSlider from './components/infiniteBrandSlider';
 
 export default function Home() {
   useEffect(() => {
@@ -28,6 +29,7 @@ export default function Home() {
       <DividerMenu />
       <Features />
       <div></div>
+      <InfiniteSlider />
       <HeroDetails />
       <FactionSlider />
       <BuildArmy />

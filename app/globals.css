@@ -201,3 +201,39 @@ body {
   touch-action: pan-y;
   -webkit-overflow-scrolling: touch;
 }
+
+/* ----------Infinite brand slider css----------*/
+/* Slider Wrapper */
+.infinite-slider-wrapper {
+  overflow: hidden; /* Hide the overflowing images */
+  width: 100%;
+  position: relative;
+  white-space: nowrap; /* Prevent images from wrapping */
+}
+
+/* Slider Container */
+.slider-inner {
+  display: flex;
+  animation: scroll 20s linear infinite; /* Continuous scrolling */
+}
+
+/* Individual Image Container */
+/* Individual Image Container */
+.in-slider-image {
+  overflow: hidden;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto; /* Prevent shrinking or growing */
+  transform: scale(1.4); /* Zoom effect */
+  transition: transform 0.3s ease-in-out; /* Smooth scaling */
+}
+
+/* Scroll Animation */
+@keyframes scroll {
+  from {
+    transform: translateX(0); /* Start from the initial position */
+  }
+  to {
+    transform: translateX(-100%); /* Move one full width to the left */
+  }
+}
