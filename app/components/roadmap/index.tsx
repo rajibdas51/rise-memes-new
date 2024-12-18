@@ -1,19 +1,20 @@
 import React from "react";
-import img from "/public/assets/roadmap/roadmap-desktop.png";
+import roadmapDesktop from "/public/assets/roadmap/roadmap-desktop.png";
 import roadmapMobile from "/public/assets/roadmap/roadmap-mobile.png";
-import BlurBackgroundWithText1 from "./BlurBackgroundWithText1";
-import BlurBackgroundWithText2 from "./BlurBackgroundWithText2";
-import BlurBackgroundWithText3 from "./BlurBackgroundWithText3";
-import BlurBackgroundWithText4 from "./BlurBackgroundWithText4";
-import BlurBackgroundWithText5 from "./BlurBackgroundWithText5";
-import BlurBackgroundWithText6 from "./BlurBackgroundWithText6";
-import BlurBackgroundWithText1Mobile from "./mobileRoadMap/BlurBackgroundWithText1Mobile";
-import BlurBackgroundWithText2Mobile from "./mobileRoadMap/BlurBackgroundWithText2Mobile";
-import BlurBackgroundWithText3Mobile from "./mobileRoadMap/BlurBackgroundWithText3Mobile";
-import BlurBackgroundWithText4Mobile from "./mobileRoadMap/BlurBackgroundWithText4Mobile";
-import BlurBackgroundWithText5Mobile from "./mobileRoadMap/BlurBackgroundWithText5Mobile";
-import BlurBackgroundWithText6Mobile from "./mobileRoadMap/BlurBackgroundWithText6Mobile";
-import RoadmapLogo from "./RoadmapLogo";
+import Image from "next/image";
+// import BlurBackgroundWithText1 from "./BlurBackgroundWithText1";
+// import BlurBackgroundWithText2 from "./BlurBackgroundWithText2";
+// import BlurBackgroundWithText3 from "./BlurBackgroundWithText3";
+// import BlurBackgroundWithText4 from "./BlurBackgroundWithText4";
+// import BlurBackgroundWithText5 from "./BlurBackgroundWithText5";
+// import BlurBackgroundWithText6 from "./BlurBackgroundWithText6";
+// import BlurBackgroundWithText1Mobile from "./mobileRoadMap/BlurBackgroundWithText1Mobile";
+// import BlurBackgroundWithText2Mobile from "./mobileRoadMap/BlurBackgroundWithText2Mobile";
+// import BlurBackgroundWithText3Mobile from "./mobileRoadMap/BlurBackgroundWithText3Mobile";
+// import BlurBackgroundWithText4Mobile from "./mobileRoadMap/BlurBackgroundWithText4Mobile";
+// import BlurBackgroundWithText5Mobile from "./mobileRoadMap/BlurBackgroundWithText5Mobile";
+// import BlurBackgroundWithText6Mobile from "./mobileRoadMap/BlurBackgroundWithText6Mobile";
+// import RoadmapLogo from "./RoadmapLogo";
 const Roadmap = () => {
   return (
     <>
@@ -27,15 +28,19 @@ const Roadmap = () => {
         </div>
 
         <div className="p-0 m-0 flex justify-center h-full w-full pb-8 mg:pb-0 ">
-          <div
-            className="sm:h-[1260px]  h-0  w-full bg-cover bg-center  sm:block hidden  relative"
+          {/* <div
+            className="sm:h-[1180px]  h-0  w-full bg-cover bg-center  sm:block hidden "
             style={{
               backgroundImage: `url(${img.src})`,
               backgroundRepeat: "no-repeat",
               backgroundPosition: "contain",
             }}
-          >
-            <div className="absolute dxl:left-[90px] dxl:top-[110px] xxl:left-[0px] xxl:top-[110px]  lg:left-[0px] lg:top-[90px]      md:left-[0px] md:top-[90px]   sm:left-[30px] sm:top-[90px]    ">
+          > */}
+          <div className=" w-full bg-cover bg-center  sm:block hidden ">
+            <Image src={roadmapDesktop} alt="roadmapDesktop" />
+          </div>
+
+          {/* <div className="absolute dxl:left-[90px] dxl:top-[110px] xxl:left-[0px] xxl:top-[110px]  lg:left-[0px] lg:top-[90px]      md:left-[0px] md:top-[90px]   sm:left-[30px] sm:top-[90px]    ">
               <BlurBackgroundWithText1></BlurBackgroundWithText1>
             </div>
             <div className="absolute dxl:left-[650px] dxl:top-[280px] xx:left-[400px] xxl:top-[330px]  lg:left-[300px] lg:top-[330px]   md:left-[30px] md:top-[330px]   sm:left-[30px] sm:top-[370px]   ">
@@ -55,10 +60,10 @@ const Roadmap = () => {
             </div>
             <div className="absolute dxl:left-[230px]  dxl:bottom-[300px] lg:left-[30px]  lg:bottom-[300px]  md:left-[30px]  md:bottom-[301px]  xs:left-[30px] xs:bottom-[270px]   ">
               <RoadmapLogo></RoadmapLogo>
-            </div>
-          </div>
+            </div> */}
+          {/* </div> */}
 
-          <div
+          {/* <div
             className=" sm:hidden block  w-screen h-[600px] "
             style={{
               backgroundImage: `url(${roadmapMobile.src})`,
@@ -66,8 +71,13 @@ const Roadmap = () => {
               backgroundPosition: "center",
               backgroundSize: "contain",
             }}
-          >
-            <div className="absolute  xs:top-[150px] xs:left-[110px]     xxs:top-[250px] xxs:left-[160px]    mini:top-[330px] mini:left-[70px]     ">
+          > */}
+
+          <div className=" sm:hidden block  w-screen ">
+            <Image src={roadmapMobile} alt="roadmapMobile" />
+          </div>
+
+          {/* <div className="absolute  xs:top-[150px] xs:left-[110px]     xxs:top-[250px] xxs:left-[160px]    mini:top-[330px] mini:left-[70px]     ">
               <BlurBackgroundWithText6Mobile></BlurBackgroundWithText6Mobile>
             </div>
             <div className="absolute xs:top-[310px] xs:left-[-50px]  xxs:top-[320px] xxs:left-[-70px] mini:top-[420px] mini:left-[-70px]  ">
@@ -84,8 +94,8 @@ const Roadmap = () => {
             </div>
             <div className="absolute   xs:top-[960px] xs:left-[120px] xxs:top-[870px] xxs:left-[70px]  mini:top-[780px] mini:left-[-60px]  ">
               <BlurBackgroundWithText1Mobile></BlurBackgroundWithText1Mobile>
-            </div>
-          </div>
+            </div> */}
+          {/* </div> */}
         </div>
       </div>
     </>
