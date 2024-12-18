@@ -105,11 +105,3 @@
 }
 
 /* how to buy seciton mobile styles*/
-@media (max-width: 768px) {
-  .rotate-bg-mobile {
-    background-image: url('/assets/buyframe.png');
-    transform: rotate(90deg);
-    background-size: cover;
-    background-position: center;
-  }
-}

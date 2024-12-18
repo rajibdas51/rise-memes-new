@@ -99,7 +99,6 @@ export default function RootLayout({
           href='/apple-touch-icon.png'
         />
         <link rel='manifest' href='/site.webmanifest' />
-        <link rel='icon' href='/assets/logo.png' type='image/svg+xml' />
         <meta
           name='viewport'
           content='width=device-width, initial-scale=1, maximum-scale=1'
