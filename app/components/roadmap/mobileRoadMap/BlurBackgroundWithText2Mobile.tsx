@@ -10,7 +10,7 @@ const BlurBackgroundWithText2Mobile = () => {
       <div className="relative">
         <Image src={blur2} alt="" loading="lazy" className="" />
 
-        <div className="absolute top-[3.5rem] left-[4rem]">
+        <div className="absolute xs:top-[3.5rem] xs:left-[4rem] top-[4.5rem] left-[6rem]">
           <div className="flex gap-4 pb-[6px]">
             {/* <Image  src={roundNumber} alt="roundNumber"/> */}
             <div

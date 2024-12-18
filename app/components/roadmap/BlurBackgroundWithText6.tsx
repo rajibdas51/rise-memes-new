@@ -11,7 +11,7 @@ const BlurBackgroundWithText6 = () => {
       <div className="relative">
         <Image src={blur6} alt="" loading="lazy" className="" />
 
-        <div className="absolute top-[3rem] left-[4rem]">
+        <div className="absolute top-[3rem] left-[2rem]">
           <div className="flex gap-4 pb-[6px]">
             {/* <Image  src={roundNumber} alt="roundNumber"/> */}
             <div

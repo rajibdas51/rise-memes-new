@@ -15,7 +15,7 @@ const BlurBackgroundWithText1Mobile = () => {
           className=""
         />
 
-        <div className="absolute top-[4.6rem] left-[3rem]">
+        <div className="absolute xs:top-[4.6rem] xs:left-[3rem] top-[6rem] left-[6rem]">
           <div className="flex gap-4 pb-[6px]">
             <div
               className="h-[15.99px] w-[14.96px] "

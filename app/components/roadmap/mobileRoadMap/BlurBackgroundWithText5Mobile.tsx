@@ -11,7 +11,7 @@ const BlurBackgroundWithText5Mobile = () => {
       <div className="relative">
         <Image src={blur5} alt="" loading="lazy" className="" />
 
-        <div className="absolute top-[3.4rem] left-[3.3rem]">
+        <div className="absolute xs:top-[5.3rem] xs:left-[6rem] top-[5.3rem] left-[6rem]">
           <div className="flex gap-4 pb-[6px]">
             {/* <Image  src={roundNumber} alt="roundNumber"/> */}
             <div
