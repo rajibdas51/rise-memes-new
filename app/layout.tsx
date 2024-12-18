@@ -80,8 +80,19 @@ export default function RootLayout({
           href='/favicon-96x96.png'
           sizes='96x96'
         />
+        <link
+          rel='icon'
+          type='image/png'
+          href='/web-app-manifest-192x192.png'
+          sizes='180x180'
+        />
+        <link
+          rel='icon'
+          type='image/png'
+          href='/web-app-manifest-512x512.png'
+          sizes='512x512'
+        />
         <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
-        <link rel='shortcut icon' href='/favicon.ico' />
         <link
           rel='apple-touch-icon'
           sizes='180x180'
@@ -89,7 +100,6 @@ export default function RootLayout({
         />
         <link rel='manifest' href='/site.webmanifest' />
         <link rel='icon' href='/assets/logo.png' type='image/svg+xml' />
-        <link rel='apple-touch-icon' href='/apple-touch-icon.png' />
         <meta
           name='viewport'
           content='width=device-width, initial-scale=1, maximum-scale=1'
