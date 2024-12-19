@@ -5,8 +5,48 @@ import CustomInput from '../../common/custom-input';
 import SimpleButton from '../../common/simple-button';
 import DownloadBtns from '../../common/download-btns';
 import Link from 'next/link';
+import { useState } from 'react';
+import toast from 'react-hot-toast';
+import { SubscriptionError } from '@/app/types/subscription';
 
 export default function Footer() {
+  const [email, setEmail] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleSubscribe = async () => {
+    if (!email || !email.includes('@')) {
+      toast.error('Please enter a valid email address');
+      return;
+    }
+
+    setIsLoading(true);
+    try {
+      const response = await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        const error = data.error as SubscriptionError;
+        throw new Error(error.message || 'Failed to subscribe');
+      }
+
+      toast.success('Successfully subscribed!');
+      setEmail('');
+    } catch (error) {
+      const errorMessage =
+        error instanceof Error
+          ? error.message
+          : 'Failed to subscribe. Please try again.';
+      toast.error(errorMessage);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   return (
     <footer>
       <div
@@ -17,22 +57,29 @@ export default function Footer() {
         <div className='absolute inset-0 bg-gradient-to-r from-[#20150b] via-transparent to-[#20150b] opacity-80 pointer-events-none'></div>
 
         <div className='relative z-10 w-full flex flex-col items-center'>
+          {/* subscription form begining*/}
           <div className='flex justify-center items-center px-2'>
             <div className='lg:min-w-[30rem] lg:max-w-[30rem] px-6 py-4 md:px-14 md:py-8 bg-[#20150b]/60 rounded-xl border border-[#EED199] border-opacity-70 flex flex-col gap-2'>
               <CustomInput
                 label='Subscribe For Contests, Airdrops and updates!'
                 labelClassName='text-xs'
-                inputClassName='focus:border-2 border-[#EED199] border-opacity-70'
-                onChange={(value) => console.log(value)}
+                inputClassName='focus:border-2 border-[#EED199] border-opacity-70 '
+                value={email}
+                onChange={setEmail}
                 placeholder='Enter your email address'
+                type='email'
+                showMax={false} // Add this to hide the MAX button
               />
               <SimpleButton
-                label='Subscribe'
+                label={isLoading ? 'Subscribing...' : 'Subscribe'}
                 radialColor1='#54442c'
                 radialColor2='#211811'
+                onClick={handleSubscribe}
+                disabled={isLoading}
               />
             </div>
           </div>
+          {/* subscription form ending*/}
 
           <div className='mt-5 flex justify-center items-center gap-14'>
             <Image

@@ -1,5 +1,5 @@
-import Link from "next/link";
-import React from "react";
+import Link from 'next/link';
+import React from 'react';
 
 interface CustomButtonProps {
   label: string;
@@ -8,6 +8,7 @@ interface CustomButtonProps {
   onClick?: () => void;
   radialColor1?: string;
   radialColor2?: string;
+  disabled?: boolean; // Added disabled prop
 }
 
 const SimpleButton: React.FC<CustomButtonProps> = ({
@@ -15,11 +16,12 @@ const SimpleButton: React.FC<CustomButtonProps> = ({
   href,
   className,
   onClick,
-  radialColor1 = "#835e3b",
-  radialColor2 = "#371708",
+  radialColor1 = '#835e3b',
+  radialColor2 = '#371708',
+  disabled,
 }) => {
   const buttonContent = (
-    <div className="relative p-[2px] rounded-sm bg-gradient-to-b from-[#977749] to-[#977749] overflow-hidden ">
+    <div className='relative p-[2px] rounded-sm bg-gradient-to-b from-[#977749] to-[#977749] overflow-hidden '>
       <button
         onClick={onClick}
         className={`relative group overflow-hidden w-full h-full px-10 py-2 min-w-[120px] text-md text-white shadow-custom-light  ${className}`}
@@ -29,13 +31,14 @@ const SimpleButton: React.FC<CustomButtonProps> = ({
             linear-gradient(to bottom, #7d4e22, #d19340)
           `,
         }}
+        disabled={disabled}
       >
-        <div className="relative text-gradient font-bold uppercase z-10">
+        <div className='relative text-gradient font-bold uppercase z-10'>
           {label}
         </div>
 
-        <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-          <div className="absolute inset-0 bg-red-500/10" />
+        <div className='absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300'>
+          <div className='absolute inset-0 bg-red-500/10' />
         </div>
       </button>
     </div>

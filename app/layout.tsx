@@ -7,6 +7,7 @@ import 'slick-carousel/slick/slick-theme.css';
 import Footer from './components/shared/footer';
 import AnimationProvider from './components/provider/animation-provider';
 import Script from 'next/script';
+import { Toaster } from 'react-hot-toast';
 
 export const metadata: Metadata = {
   metadataBase: new URL('http://51.20.109.37/'),
@@ -125,6 +126,7 @@ export default function RootLayout({
       <body className={clsx('font-cinzel antialiased')}>
         <AnimationProvider>
           <Navbar />
+          <Toaster position='bottom-center' />
           {children}
           <Footer />
         </AnimationProvider>
