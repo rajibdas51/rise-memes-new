@@ -5,8 +5,6 @@ import Image from 'next/image';
 import mobile from '/public/assets/mobile.png';
 import mask from '/public/assets/featuermask.png';
 import DownloadBtns from '../common/download-btns';
-import SubHeading from '../common/sub-heading';
-import Heading from '../common/heading';
 
 type Props = object;
 
