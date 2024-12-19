@@ -15,13 +15,12 @@ const images = [
   '/assets/brands/9.png',
   '/assets/brands/10.png',
   '/assets/brands/11.png',
-  '/assets/brands/12.png',
 ];
 
 const InfiniteSlider = () => {
   return (
     <div className='infinite-slider-wrapper'>
-      <div className='slider-inner'>
+      <div className='slider-inner pt-12'>
         {/* Duplicate images for smooth infinite scroll */}
         {[...images, ...images].map((src, index) => (
           <div key={index} className='in-slider-image'>
