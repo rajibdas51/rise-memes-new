@@ -7,7 +7,7 @@ import { NextResponse } from 'next/server';
 import { SubscriptionError } from '@/app/types/subscription';
 
 const resend = new Resend(process.env.RESEND_API_KEY!);
-const OWNER_EMAIL = 'contact@riseofmemes.com';
+const OWNER_EMAIL = 'komrech@proton.me';
 
 export async function POST(request: Request) {
   try {
