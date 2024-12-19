@@ -24,7 +24,7 @@ const InfiniteSlider = () => {
 
   return (
     <div className='infinite-slider-wrapper overflow-hidden'>
-      <div className='flex justify-center items-center w-full lg:pt-16 lg:pb-0 py-5 px-5'>
+      <div className='z-50 flex justify-center items-center w-full pb-0 lg:pt-8 lg:pb-0 pt-10 md:pt-0 -mb-5 md:mb-0 py-0 md:py-5 px-5'>
         <h1
           className={`lg:text-4xl relative text-2xl font-medium text-center text-transparent bg-clip-text bg-gradient-to-b from-[#E4D9BD] to-[#AA8246]`}
           style={containerShadowStyle}
@@ -32,7 +32,7 @@ const InfiniteSlider = () => {
           Featured In
         </h1>
       </div>
-      <div className='slider-inner pt-1 flex'>
+      <div className='slider-inner -pt-4 md:pt-1 flex'>
         {/* Duplicate images for smooth infinite scroll */}
         {[...images, ...images].map((src, index) => (
           <div key={index} className='in-slider-image flex-shrink-0'>
