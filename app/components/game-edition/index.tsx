@@ -92,7 +92,11 @@ const EditionCard: React.FC<EditionCardProps> = ({
 
       <div className='w-full px-20 lg:px-28 relative flex justify-center items-center'>
         <div className='absolute inset-0 inset-x-32 rounded-full bg-[#BE8A29] opacity-100 blur-3xl -z-10'></div>
-        <CustomButton className='px-14' mainStyle='w-full' label='BUY' />
+        <CustomButton
+          className='px-14 flex items-center justify-center'
+          mainStyle='w-full'
+          label='BUY'
+        />
       </div>
     </div>
   );

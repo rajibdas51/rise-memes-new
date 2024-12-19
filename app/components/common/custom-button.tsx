@@ -22,7 +22,7 @@ const CustomButton = ({
     >
       <button
         onClick={onClick}
-        className={`relative group overflow-visible w-full h-full text-md text-white shadow-custom-light px-8 py-2 sm:px-8 sm:py-2 md:px-10 md:py-2 lg:px-9 lg:py-2 xL:px-12 xL:py-2 xl:px-14 xl:py-2  ${className}
+        className={`relative group items-center justify-center overflow-visible w-full h-full text-md text-white shadow-custom-light px-8 py-2 sm:px-8 sm:py-2 md:px-10 md:py-2 lg:px-9 lg:py-2 xL:px-12 xL:py-2 xl:px-14 xl:py-2  ${className}
         `}
         style={{
           background: `
@@ -38,7 +38,7 @@ const CustomButton = ({
 
         <div
           style={{ width: 'fit-content' }}
-          className='relative text-gradient font-bold uppercase z-50 whitespace-nowrap overflow-visible'
+          className='relative text-gradient  font-bold uppercase flex items-center justify-center z-50 whitespace-nowrap overflow-visible'
         >
           {label}
         </div>
