@@ -11,7 +11,7 @@ interface EditionCardProps {
   pricingText: string;
   price: string;
   pricingPosition?: 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right';
-  pricingPositionTwo: 'three-four';
+  pricingPositionTwo: 'top-left' | '';
   boldFirstReward?: boolean;
 }
 
@@ -29,7 +29,7 @@ const EditionCard: React.FC<EditionCardProps> = ({
       'absolute text-[#fff1de] text-glow text-xs w-[55%] xl:w-[45%] transform ';
     const positions = {
       'top-left': `${
-        pricingPositionTwo ? 'top-[60px]' : ''
+        pricingPositionTwo ? 'top-[60px] sm:top-20' : ''
       } top-20 -left-4 -rotate-6`,
       'top-right': 'top-4 right-4 rotate-6',
       'bottom-left':
@@ -192,9 +192,7 @@ const GameEditionsGrid: React.FC = () => {
                 rewards={edition.rewards}
                 price={edition.price}
                 pricingPosition={index <= 1 ? 'bottom-left' : 'top-left'}
-                pricingpositingtwo={
-                  index == 2 && index == 4 ? 'three-four' : 'three-four-none'
-                }
+                pricingPositionTwo={index == 2 || index == 4 ? 'top-left' : ''}
                 pricingText='of $RISE Tokens and Enjoy The Following Rewards!'
               />
             </div>
