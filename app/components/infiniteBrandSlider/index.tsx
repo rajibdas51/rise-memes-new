@@ -25,7 +25,7 @@ const InfiniteSlider = () => {
         {/* Duplicate images for smooth infinite scroll */}
         {[...images, ...images].map((src, index) => (
           <div key={index} className='in-slider-image'>
-            <Image src={src} alt={`Slide ${index}`} width={150} height={100} />
+            <Image src={src} alt={`Slide ${index}`} width={200} height={200} />
           </div>
         ))}
       </div>
