@@ -32,7 +32,7 @@ const InfiniteSlider = () => {
           Featured In
         </h1>
       </div>
-      <div className='slider-inner pt-12 flex'>
+      <div className='slider-inner pt-1 flex'>
         {/* Duplicate images for smooth infinite scroll */}
         {[...images, ...images].map((src, index) => (
           <div key={index} className='in-slider-image flex-shrink-0'>
